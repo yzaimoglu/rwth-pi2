@@ -1,0 +1,100 @@
+#include <iomanip>
+#include <cmath>
+#include "PKW.h"
+
+// Standardkonstruktor
+PKW::PKW() {
+	std::cout << "(+) PKW mit dem Namen '" << p_sName <<
+				"', der ID " << p_iID <<
+				", dem Verbrauch " << p_dVerbrauch <<
+				"und dem Tankvolumen " << p_dTankvolumen <<
+				", erzeugt." << std::endl;
+}
+
+// Konstruktor
+// Initialisierungsliste:
+// 	p_sName kommt von dem Fahrzeugkonstruktor
+PKW::PKW(std::string sName) : Fahrzeug(sName) {
+	std::cout << "(+) PKW mit dem Namen '" << p_sName <<
+			"', der ID " << p_iID <<
+			", dem Verbrauch " << p_dVerbrauch <<
+			"und dem Tankvolumen " << p_dTankvolumen <<
+			", erzeugt." << std::endl;
+}
+
+// Konstruktor
+// Initialisierungsliste:
+// 	p_sName und p_dMaxGeschwindigkeit kommen von dem Fahrzeugkonstruktor
+PKW::PKW(std::string sName, double dMaxGeschwindigkeit) : Fahrzeug(sName, dMaxGeschwindigkeit) {
+	std::cout << "(+) PKW mit dem Namen '" << p_sName <<
+			"', der ID " << p_iID <<
+			", dem Verbrauch " << p_dVerbrauch <<
+			"und dem Tankvolumen " << p_dTankvolumen <<
+			", erzeugt." << std::endl;
+}
+
+// Konstruktor
+// Initialisierungsliste:
+// 	p_sName und p_dMaxGeschwindigkeit kommen von dem Fahrzeugkonstruktor
+//	p_dVerbrauch wird zu dVerbrauch
+//	p_dTankvolumen wird zu dTankvolumen
+//	p_dTaninhalt wird zu der Hälfte des dTankvolumens
+PKW::PKW(std::string sName, double dMaxGeschwindigkeit, double dVerbrauch, double dTankvolumen = 55.0) :
+		Fahrzeug(sName, dMaxGeschwindigkeit),
+		p_dVerbrauch(dVerbrauch),
+		p_dTankvolumen(dTankvolumen),
+		p_dTankinhalt(dTankvolumen / 2) {
+	std::cout << "(+) PKW mit dem Namen '" << p_sName <<
+			"', der ID " << p_iID <<
+			", dem Verbrauch " << p_dVerbrauch <<
+			"und dem Tankvolumen " << p_dTankvolumen <<
+			", erzeugt." << std::endl;
+}
+
+// Destruktor
+PKW::~PKW() {
+	std::cout << "(-) Fahrzeug mit dem Namen '" << p_sName << "' und der ID " << p_iID << " gelöscht." << std::endl;
+}
+
+// Definition für die override Memberfunktion dTanken()
+double PKW::dTanken(double dMenge) {
+	if(dMenge >= p_dTankvolumen - p_dTankinhalt) {
+		p_dTankinhalt = p_dTankvolumen;
+		dMenge = p_dTankvolumen - p_dTankinhalt;
+		return dMenge;
+	}
+
+	p_dTankinhalt += dMenge;
+	return dMenge;
+}
+
+// Definition für die override Memberfunktion vSimulieren()
+void PKW::vSimulieren() {
+	// Wenn der Tank leer ist soll nicht simuliert werden
+	if(p_dTankinhalt == 0) {
+		p_dZeit = dGlobaleZeit;
+		return;
+	}
+
+	// GesamtStrecke vor der Simulation notwendig, damit die Simulationsstrecke berechnet werden kann
+	double dGesamtStreckeVorSim = p_dGesamtStrecke;
+	Fahrzeug::vSimulieren();
+
+	// Berechnung des verbleibenden Tankinhalts durch den Verbrauch und die Simulationsstrecke
+	// Das ganze wird durch 100 geteilt, da der Verbrauch eine Einheit von Liter/100km hat
+	p_dTankinhalt -= p_dVerbrauch * (p_dGesamtStrecke - dGesamtStreckeVorSim) / 100;
+
+	// Wenn der Tankinhalt bei der Simulation negativ wird, wird der Tankinhalt auf 0 gesetzt
+	(p_dTankinhalt < 0) ? p_dTankinhalt : 0;
+}
+
+// Definition für die override Memberfunktion vAusgeben()
+void PKW::vAusgeben() {
+	double dGesamtverbrauch = p_dGesamtStrecke / 100 * p_dVerbrauch;
+	Fahrzeug::vAusgeben();
+	std::cout << std::setw(20)
+		<< std::round(dGesamtverbrauch * 1000.0) / 1000.0
+		<< std::setw(20)
+		<< std::round(p_dTankinhalt * 1000.0) / 1000.0
+		<< std::endl;
+}

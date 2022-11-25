@@ -1,0 +1,26 @@
+#include <limits>
+#include "Fahrzeug.h"
+
+#ifndef PKW_H_
+#define PKW_H_
+
+class PKW {
+private:
+	double p_dVerbrauch = 0.0;
+	double p_dTankvolumen = 55.0;
+	double p_dTankinhalt = p_dTankvolumen / 2;
+public:
+	PKW();
+	PKW(std::string sName);
+	PKW(std::string sName, double dMaxGeschwindigkeit);
+	PKW(std::string sName, double dMaxGeschwindigkeit, double dVerbrauch, double dTankvolumen=55.0);
+
+	double dTanken();
+	double dTanken(double dMenge = std::numeric limits<double>::infinity());
+
+
+
+	virtual ~PKW();
+};
+
+#endif

@@ -1,0 +1,8 @@
+#include "Fahrrad.h"
+
+Fahrrad::Fahrrad() {
+
+}
+
+
+

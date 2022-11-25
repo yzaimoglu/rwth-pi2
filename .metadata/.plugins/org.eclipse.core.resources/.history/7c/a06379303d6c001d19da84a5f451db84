@@ -1,0 +1,17 @@
+#include "Fahrzeug.h"
+
+#ifndef PKW_H_
+#define PKW_H_
+
+class PKW {
+private:
+	double p_dVerbrauch = 0.0;
+	double p_dTankvolumen = 0.0;
+	double p_dTankinhalt = 0.0;
+
+public:
+	PKW();
+	virtual ~PKW();
+};
+
+#endif

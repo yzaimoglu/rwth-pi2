@@ -1,0 +1,34 @@
+#pragma once
+#include <limits>
+#include "Fahrzeug.h"
+
+#ifndef PKW_H_
+#define PKW_H_
+
+class PKW : public Fahrzeug {
+private:
+	// Verbrauch l/100km
+	double p_dVerbrauch = 0.0;
+
+	// Tankvolumen des PKWS
+	double p_dTankvolumen = 55.0;
+
+	// Tankinhalt des PKWs
+	// initial die Hälfte des Tankvolumens
+	double p_dTankinhalt = p_dTankvolumen / 2;
+public:
+	PKW();
+	PKW(std::string sName);
+	PKW(std::string sName, double dMaxGeschwindigkeit);
+	PKW(std::string sName, double dMaxGeschwindigkeit, double dVerbrauch, double dTankvolumen = 55.0);
+
+	virtual double dTanken(double dMenge = std::numeric_limits<double>::infinity()) override;
+
+	virtual void vSimulieren() override;
+	virtual void vAusgeben() override;
+	virtual void vAusgeben(std::ostream& o) const override;
+
+	virtual ~PKW();
+};
+
+#endif

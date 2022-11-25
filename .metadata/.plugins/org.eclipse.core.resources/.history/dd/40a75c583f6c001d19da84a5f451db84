@@ -1,0 +1,16 @@
+#include "Fahrzeug.h"
+
+#ifndef FAHRRAD_H_
+#define FAHRRAD_H_
+
+class Fahrrad : public Fahrzeug {
+public:
+	Fahrrad();
+	Fahrrad(std::string name, double maxGeschwindigkeit);
+
+	virtual double dGeschwindigkeit()
+
+	virtual ~Fahrrad();
+};
+
+#endif

@@ -1,0 +1,25 @@
+#include <math.h>
+#include "Fahrrad.h"
+
+Fahrrad::Fahrrad() : Fahrzeug() {
+
+}
+
+Fahrrad::Fahrrad(std::string sName, double dMaxGeschwindigkeit)
+	: Fahrzeug(sName, dMaxGeschwindigkeit) {
+
+}
+
+Fahrrad::~Fahrrad() {
+
+}
+
+double Fahrrad::dGeschwindigkeit() {
+	int iAbschnitte = (int) (p_dGesamtStrecke / 20);
+
+	double dGeschwindigkeit = p_dMaxGeschwindigkeit * pow(0.9, iAbschnitte);
+
+	if (dGeschwindigkeit < 12) dGeschwindigkeit = 12;
+	return dGeschwindigkeit;
+}
+

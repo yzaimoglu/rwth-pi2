@@ -1,0 +1,17 @@
+/*
+ * PKW.h
+ *
+ *  Created on: 24 Nov 2022
+ *      Author: yagi
+ */
+
+#ifndef PKW_H_
+#define PKW_H_
+
+class PKW {
+public:
+	PKW();
+	virtual ~PKW();
+};
+
+#endif /* PKW_H_ */
