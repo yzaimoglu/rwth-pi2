@@ -222,3 +222,132 @@ Invoking: MacOS X C++ Linker
 g++  -o "Aufgabenblock_1"  ./src/Fahrrad.o ./src/Fahrzeug.o ./src/PKW.o ./src/main.o   
 Finished building target: Aufgabenblock_1
  
+17:07:19 **** Incremental Build of configuration Debug for project Aufgabenblock_1 ****
+make all 
+Building file: ../src/main.cpp
+Invoking: GCC C++ Compiler
+g++ -std=c++17 -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"src/main.d" -MT"src/main.o" -o "src/main.o" "../src/main.cpp"
+Finished building: ../src/main.cpp
+ 
+Building target: Aufgabenblock_1
+Invoking: MacOS X C++ Linker
+g++  -o "Aufgabenblock_1"  ./src/Fahrrad.o ./src/Fahrzeug.o ./src/PKW.o ./src/main.o   
+Finished building target: Aufgabenblock_1
+ 
+00:14:13 **** Build of configuration Debug for project Aufgabenblock_1 ****
+make all 
+Building file: ../src/main.cpp
+Invoking: GCC C++ Compiler
+g++ -std=c++17 -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"src/main.d" -MT"src/main.o" -o "src/main.o" "../src/main.cpp"
+Finished building: ../src/main.cpp
+ 
+Building target: Aufgabenblock_1
+Invoking: MacOS X C++ Linker
+g++  -o "Aufgabenblock_1"  ./src/Fahrrad.o ./src/Fahrzeug.o ./src/PKW.o ./src/main.o   
+Finished building target: Aufgabenblock_1
+ 
+00:31:50 **** Incremental Build of configuration Debug for project Aufgabenblock_1 ****
+make all 
+make: Nothing to be done for `all'.
+00:32:43 **** Incremental Build of configuration Debug for project Aufgabenblock_1 ****
+make all 
+make: Nothing to be done for `all'.
+00:32:58 **** Incremental Build of configuration Debug for project Aufgabenblock_1 ****
+make all 
+make: Nothing to be done for `all'.
+00:34:04 **** Incremental Build of configuration Debug for project Aufgabenblock_1 ****
+make all 
+Building file: ../src/main.cpp
+Invoking: GCC C++ Compiler
+g++ -std=c++17 -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"src/main.d" -MT"src/main.o" -o "src/main.o" "../src/main.cpp"
+Finished building: ../src/main.cpp
+ 
+Building target: Aufgabenblock_1
+Invoking: MacOS X C++ Linker
+g++  -o "Aufgabenblock_1"  ./src/Fahrrad.o ./src/Fahrzeug.o ./src/PKW.o ./src/main.o   
+Finished building target: Aufgabenblock_1
+ 
+00:38:22 **** Incremental Build of configuration Debug for project Aufgabenblock_1 ****
+make all 
+Building file: ../src/main.cpp
+Invoking: GCC C++ Compiler
+g++ -std=c++17 -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"src/main.d" -MT"src/main.o" -o "src/main.o" "../src/main.cpp"
+Finished building: ../src/main.cpp
+ 
+Building target: Aufgabenblock_1
+Invoking: MacOS X C++ Linker
+g++  -o "Aufgabenblock_1"  ./src/Fahrrad.o ./src/Fahrzeug.o ./src/PKW.o ./src/main.o   
+Finished building target: Aufgabenblock_1
+ 
+00:38:31 **** Incremental Build of configuration Debug for project Aufgabenblock_1 ****
+make all 
+make: Nothing to be done for `all'.
+00:38:39 **** Incremental Build of configuration Debug for project Aufgabenblock_1 ****
+make all 
+make: Nothing to be done for `all'.
+00:38:47 **** Incremental Build of configuration Debug for project Aufgabenblock_1 ****
+make all 
+make: Nothing to be done for `all'.
+00:38:51 **** Incremental Build of configuration Debug for project Aufgabenblock_1 ****
+make all 
+make: Nothing to be done for `all'.
+08:56:32 **** Incremental Build of configuration Debug for project Aufgabenblock_1 ****
+make all 
+Building file: ../src/Fahrrad.cpp
+Invoking: GCC C++ Compiler
+g++ -std=c++17 -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"src/Fahrrad.d" -MT"src/Fahrrad.o" -o "src/Fahrrad.o" "../src/Fahrrad.cpp"
+In file included from ../src/Fahrrad.cpp:3:
+../src/Fahrrad.h:16:28: error: only virtual member functions can be marked 'override'
+        double dGeschwindigkeit() override;
+                                  ^~~~~~~~
+../src/Fahrrad.h:19:19: error: only virtual member functions can be marked 'override'
+        void vAusgeben() override;
+                         ^~~~~~~~
+../src/Fahrrad.h:22:40: error: only virtual member functions can be marked 'override'
+        void vAusgeben(std::ostream& o) const override;
+                                              ^~~~~~~~
+../src/Fahrrad.h:25:21: error: only virtual member functions can be marked 'override'
+        void vSimulieren() override;
+                           ^~~~~~~~
+4 errors generated.
+make: *** [src/Fahrrad.o] Error 1
+"make all" terminated with exit code 2. Build might be incomplete.
+08:57:40 **** Incremental Build of configuration Debug for project Aufgabenblock_1 ****
+make all 
+Building file: ../src/Fahrrad.cpp
+Invoking: GCC C++ Compiler
+g++ -std=c++17 -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"src/Fahrrad.d" -MT"src/Fahrrad.o" -o "src/Fahrrad.o" "../src/Fahrrad.cpp"
+Finished building: ../src/Fahrrad.cpp
+ 
+Building file: ../src/Fahrzeug.cpp
+Invoking: GCC C++ Compiler
+g++ -std=c++17 -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"src/Fahrzeug.d" -MT"src/Fahrzeug.o" -o "src/Fahrzeug.o" "../src/Fahrzeug.cpp"
+Finished building: ../src/Fahrzeug.cpp
+ 
+Building file: ../src/PKW.cpp
+Invoking: GCC C++ Compiler
+g++ -std=c++17 -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"src/PKW.d" -MT"src/PKW.o" -o "src/PKW.o" "../src/PKW.cpp"
+Finished building: ../src/PKW.cpp
+ 
+Building file: ../src/main.cpp
+Invoking: GCC C++ Compiler
+g++ -std=c++17 -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"src/main.d" -MT"src/main.o" -o "src/main.o" "../src/main.cpp"
+Finished building: ../src/main.cpp
+ 
+Building target: Aufgabenblock_1
+Invoking: MacOS X C++ Linker
+g++  -o "Aufgabenblock_1"  ./src/Fahrrad.o ./src/Fahrzeug.o ./src/PKW.o ./src/main.o   
+Finished building target: Aufgabenblock_1
+ 
+08:58:53 **** Incremental Build of configuration Debug for project Aufgabenblock_1 ****
+make all 
+Building file: ../src/main.cpp
+Invoking: GCC C++ Compiler
+g++ -std=c++17 -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"src/main.d" -MT"src/main.o" -o "src/main.o" "../src/main.cpp"
+Finished building: ../src/main.cpp
+ 
+Building target: Aufgabenblock_1
+Invoking: MacOS X C++ Linker
+g++  -o "Aufgabenblock_1"  ./src/Fahrrad.o ./src/Fahrzeug.o ./src/PKW.o ./src/main.o   
+Finished building target: Aufgabenblock_1
+ 

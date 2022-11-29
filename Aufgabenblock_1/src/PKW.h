@@ -31,19 +31,19 @@ public:
 
 	// Funktion zum Tanken
 	// Standardwert so, dass der Tank vollgetankt wird
-	virtual double dTanken(double dMenge = std::numeric_limits<double>::infinity()) override;
+	double dTanken(double dMenge = std::numeric_limits<double>::infinity()) override;
 
 	// Funktion zum Simulieren
-	virtual void vSimulieren() override;
+	void vSimulieren() override;
 
 	// Funktion zur tabellarischen Ausgabe der Spezifikationen des Fahrzeugs
-	virtual void vAusgeben() override;
+	void vAusgeben() override;
 
 	// Funktion zur Ausgabe der Daten, genutzt zusammen mit der Überladung des Operators <<
-	virtual void vAusgeben(std::ostream& o) const override;
+	void vAusgeben(std::ostream& o) const override;
 
 	// Destruktor
-	virtual ~PKW();
+	~PKW();
 };
 
 #endif

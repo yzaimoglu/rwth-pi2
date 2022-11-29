@@ -11,6 +11,9 @@
 // Die globale Variable dGlobaleZeit, damit die Fahrzeuge wissen, wie lange diese simulieren sollen
 double dGlobaleZeit;
 
+// Genutzt beim Vortestat aber an sich nicht best-practices
+// using namespace std;
+
 void vAufgabe_1() {
 	// Standardkonstruktor -> statisches Erzeugen von fahrzeug1
 	Fahrzeug fahrzeug1;
@@ -23,6 +26,14 @@ void vAufgabe_1() {
 	Fahrzeug* fahrzeug4 = new Fahrzeug("BMW");
 
 	// Nutzung von Smart-Pointern für die Konstruktion von Fahrzeugen
+	// unique_ptr = Zeiger auf nur ein einziges Objekt (Pointer hat Besitz des Objekts)
+	//	Objekt wird zerstört, wenn Unique-Pointer zerstört wird
+	//	Übergabe des Besitzes durch move()
+	// shared_ptr = mehrere Zeiger auf ein geimeinsames Objekt (alle Pointer haben Besitz des Objekts)
+	//	Objekt wird zerstört, wenn kein gemeinsamer Zeiger mehr auf das Objekt zeigt
+	//	Overhead (Zähler)
+	// weak_ptr = Zeiger erzeugt aus shared_ptr (ohne Besitz am Objekt)
+	//	Objekt nur verwendbar, wenn shared_ptr auf Objekt besteht
 	std::unique_ptr<Fahrzeug> fahrzeug5 = std::make_unique<Fahrzeug>("Mercedes");
 	std::unique_ptr<Fahrzeug> fahrzeug6 = std::make_unique<Fahrzeug>("Chevrolet");
 	std::shared_ptr<Fahrzeug> fahrzeug7 = std::make_shared<Fahrzeug>("Ford");
@@ -258,6 +269,42 @@ void vAufgabe_3() {
 	std::cout << aFahrrad2 << std::endl;
 	std::cout << aFahrrad3 << std::endl;
 }
+
+// Aufgabe für das Vortestat
+/*double dEpsilon = 0.001;
+void vAufgabe_AB1() {
+
+    int l = 0; // Laufindex für gezielte AUsgabe
+    vector<int> ausgabe{13};
+    double dTakt = 0.4;
+
+    std::vector<unique_ptr<Fahrzeug>> vecFahrzeuge;
+    vecFahrzeuge.push_back(make_unique <PKW>("Audi", 229, 9.6));
+    vecFahrzeuge.push_back(make_unique <Fahrrad>("BMX", 24.7));
+    for (dGlobaleZeit = 0; dGlobaleZeit < 10; dGlobaleZeit += dTakt)
+    {
+        auto itL = find(ausgabe.begin(), ausgabe.end(), l);
+        if (itL != ausgabe.end()) {
+            std::cout << std::endl << l <<  " Globalezeit = " << dGlobaleZeit << std::endl;
+            Fahrzeug::vKopf();
+        }
+
+        for (int i = 0; i < (int) vecFahrzeuge.size(); i++)
+        {
+            vecFahrzeuge[i]->vSimulieren();
+            if (fabs(dGlobaleZeit - 3.0) < dTakt/2)
+            {
+                vecFahrzeuge[i]->dTanken();
+            }
+            if (itL != ausgabe.end()) {
+                std::cout << *vecFahrzeuge[i] << endl;
+            }
+        }
+        l++;
+    }
+    char c;
+    std::cin >> c;
+}*/
 
 int main() {
 	dGlobaleZeit = 0.0;

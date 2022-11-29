@@ -1,20 +1,5 @@
-03:36:26 **** Incremental Build of configuration Debug for project Aufgabenblock_1 ****
+08:58:53 **** Incremental Build of configuration Debug for project Aufgabenblock_1 ****
 make all 
-Building file: ../src/Fahrrad.cpp
-Invoking: GCC C++ Compiler
-g++ -std=c++17 -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"src/Fahrrad.d" -MT"src/Fahrrad.o" -o "src/Fahrrad.o" "../src/Fahrrad.cpp"
-Finished building: ../src/Fahrrad.cpp
- 
-Building file: ../src/Fahrzeug.cpp
-Invoking: GCC C++ Compiler
-g++ -std=c++17 -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"src/Fahrzeug.d" -MT"src/Fahrzeug.o" -o "src/Fahrzeug.o" "../src/Fahrzeug.cpp"
-Finished building: ../src/Fahrzeug.cpp
- 
-Building file: ../src/PKW.cpp
-Invoking: GCC C++ Compiler
-g++ -std=c++17 -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"src/PKW.d" -MT"src/PKW.o" -o "src/PKW.o" "../src/PKW.cpp"
-Finished building: ../src/PKW.cpp
- 
 Building file: ../src/main.cpp
 Invoking: GCC C++ Compiler
 g++ -std=c++17 -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"src/main.d" -MT"src/main.o" -o "src/main.o" "../src/main.cpp"
@@ -26,5 +11,5 @@ g++  -o "Aufgabenblock_1"  ./src/Fahrrad.o ./src/Fahrzeug.o ./src/PKW.o ./src/ma
 Finished building target: Aufgabenblock_1
  
 
-03:36:28 Build Finished. 0 errors, 0 warnings. (took 1s.163ms)
+08:58:53 Build Finished. 0 errors, 0 warnings. (took 461ms)
 

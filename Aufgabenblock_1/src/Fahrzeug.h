@@ -70,7 +70,7 @@ public:
 	virtual ~Fahrzeug();
 };
 
-// Überladung des << Operators
+// Überladung des << Operators außerhalb der Klasse
 std::ostream& operator<<(std::ostream&, const Fahrzeug&);
 
 #endif
