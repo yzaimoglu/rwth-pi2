@@ -20,6 +20,11 @@ Fahrrad::~Fahrrad() {
 
 // Definition der override Memberfunktion dGeschwindigkeit()
 double Fahrrad::dGeschwindigkeit() {
+	if(p_dMaxGeschwindigkeit < 12) {
+		double dGeschwindigkeit = p_dMaxGeschwindigkeit;
+		return dGeschwindigkeit;
+	}
+
 	// Anzahl der 20km Abschnitte
 	int iAbschnitte = (int) (p_dGesamtStrecke / 20);
 

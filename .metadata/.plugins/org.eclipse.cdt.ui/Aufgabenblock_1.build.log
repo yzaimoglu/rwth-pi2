@@ -1,15 +1,6 @@
-08:58:53 **** Incremental Build of configuration Debug for project Aufgabenblock_1 ****
+16:03:16 **** Build of configuration Debug for project Aufgabenblock_1 ****
 make all 
-Building file: ../src/main.cpp
-Invoking: GCC C++ Compiler
-g++ -std=c++17 -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"src/main.d" -MT"src/main.o" -o "src/main.o" "../src/main.cpp"
-Finished building: ../src/main.cpp
- 
-Building target: Aufgabenblock_1
-Invoking: MacOS X C++ Linker
-g++  -o "Aufgabenblock_1"  ./src/Fahrrad.o ./src/Fahrzeug.o ./src/PKW.o ./src/main.o   
-Finished building target: Aufgabenblock_1
- 
+make: Nothing to be done for `all'.
 
-08:58:53 Build Finished. 0 errors, 0 warnings. (took 461ms)
+16:03:16 Build Finished. 0 errors, 0 warnings. (took 565ms)
 
