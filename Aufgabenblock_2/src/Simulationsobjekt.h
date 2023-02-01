@@ -5,21 +5,22 @@
 
 class Simulationsobjekt {
 private:
+	// Statische MaxID zum incrementen
 	static int p_iMaxID;
 public:
-	// Konstruktoren
+	// Standardkonstruktor und genutzer Konstruktor
 	Simulationsobjekt();
 	Simulationsobjekt(std::string sName);
 
-	// Destruktoren
+	// Standarddestruktor
 	virtual ~Simulationsobjekt();
 
-	// Simulationsmethode
+	// Simulationsmethode, pure virtuelle Methode
 	virtual void vSimulieren() = 0;
 
-	// Ausgabemethode
+	// Ausgabemethoden
 	virtual void vAusgeben();
-	virtual void vAusgeben(std::ostream& os) const;
+	virtual std::ostream& vAusgeben(std::ostream& os);
 
 	// Getter ID
 	const int getID() {
@@ -41,6 +42,7 @@ public:
 
 	// Überladen einiger Operatoren
 	bool operator==(const Simulationsobjekt& simulationsObjekt);
+// protected, da die Subklassen Zugriff haben sollen
 protected:
 	std::string p_sName;
 	const int p_iID = 0;

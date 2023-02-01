@@ -1,20 +1,31 @@
 #include <iostream>
 #include <list>
 #include "Simulationsobjekt.h"
+#include "vertagt_liste.h"
 #include "Tempolimit.h"
 #include "Fahrzeug.h"
+#include "Kreuzung.h"
 
 #ifndef WEG_H_
 #define WEG_H_
 
 class Fahrzeug;
+class Kreuzung;
+
+// Zur einfacheren Iterierung der Fahrzeugliste
+typedef vertagt::VListe<std::unique_ptr<Fahrzeug>>::iterator vIterator;
 
 class Weg : public Simulationsobjekt {
 private:
 	double p_dLaenge;
 	Tempolimit p_eTempolimit;
+	vertagt::VListe<std::unique_ptr<Fahrzeug>> p_pFahrzeuge;
+
+	// Notwendig für die Implementierung der Kreuzungklasse
+	bool p_bUeberholverbot;
+	std::weak_ptr<Weg> p_pRueckweg;
+	const std::weak_ptr<Kreuzung> p_pKreuzung;
 public:
-	std::list<std::unique_ptr<Fahrzeug>> p_pFahrzeuge;
 	// Standardkonstruktor
 	Weg();
 
@@ -23,6 +34,9 @@ public:
 	//	dLanege : Länge des Weges in km
 	// 	dTempolimit : Tempolimit auf dem Weg in km/h (Standardmäßig keine Begrenzung)
 	Weg(std::string sName, double dLaenge, Tempolimit eTempolimit = AUTOBAHN);
+
+	// Konstruktor für die Kreuzungimplementierung
+	Weg(std::string sName, double dLaenge, std::weak_ptr<Kreuzung> pKreuzung, Tempolimit eTempolimit = AUTOBAHN, bool bUeberholverbot = true);
 
 	// Methode zum Erhalten des Tempolimits als double
 	double getTempolimit() {
@@ -37,32 +51,52 @@ public:
 	}
 
 	// Methode zum Erhalten der Länge als double
-	double getLaenge() {
+	double getLaenge() const {
 		return p_dLaenge;
 	}
 
-	// Fahrzeuge als list
-	std::list<std::unique_ptr<Fahrzeug>>* getFahrzeuge() {
+	// Fahrzeuge als vertagt_liste
+	vertagt::VListe<std::unique_ptr<Fahrzeug>>* getFahrzeuge() {
 		return &p_pFahrzeuge;
 	}
 
+	// Hinzufügen eines Fahrzeuges in den Weg (Fahren & Parken)
 	void vAnnahme(std::unique_ptr<Fahrzeug>);
+	void vAnnahme(std::unique_ptr<Fahrzeug>, double dStartzeitpunkt);
+
+	// Löschen eines Fahrzeuges aus dem Weg
+	std::unique_ptr<Fahrzeug> pAbgabe(Fahrzeug&);
+
+	// Returned den Rückweg
+	Weg& getRueckweg() {
+		return *p_pRueckweg.lock();
+	}
+
+	// Setzt den Rückweg
+	void setRueckweg(std::weak_ptr<Weg> pRueckweg) {
+		p_pRueckweg = pRueckweg;
+	}
+
+	// Returned die Kreuzung
+	Kreuzung& getKreuzung() {
+		return *p_pKreuzung.lock();
+	}
 
 	// Methode zum Simulieren aller Fahrzeuge;
-	virtual void vSimulieren();
+	virtual void vSimulieren() override;
 
 	// Ausgabemethode für die Kopfzeile
 	virtual void vKopf();
 
 	// Ausgabemethoden
-	virtual void vAusgeben();
-	virtual void vAusgeben(std::ostream& o) const;
+	virtual void vAusgeben() override;
+	virtual std::ostream& vAusgeben(std::ostream& o) override;
 
 	// Destruktor
 	virtual ~Weg();
 };
 
 // Überladung des << Operators außerhalb der Klasse
-std::ostream& operator<<(std::ostream&, const Weg&);
+std::ostream& operator<<(std::ostream&, Weg&);
 
 #endif

@@ -2,8 +2,10 @@
 #include <iomanip>
 #include <string>
 #include "Simulationsobjekt.h"
+#include "vertagt_liste.h"
 #include "Weg.h"
 #include "Tempolimit.h"
+#include "Fahrausnahme.h"
 
 Weg::Weg() :
 	Simulationsobjekt(),
@@ -21,6 +23,14 @@ Weg::Weg(std::string sName, double dLaenge, Tempolimit eTempolimit) :
 		p_dLaenge(dLaenge),
 		p_eTempolimit(eTempolimit) {
 
+}
+
+Weg::Weg(std::string sName, double dLaenge, std::weak_ptr<Kreuzung> pKreuzung, Tempolimit eTempolimit, bool bUeberholverbot) :
+	Simulationsobjekt(sName),
+	p_dLaenge(dLaenge),
+	p_pKreuzung(pKreuzung),
+	p_eTempolimit(eTempolimit),
+	p_bUeberholverbot(bUeberholverbot) {
 }
 
 // Destruktor
@@ -48,69 +58,100 @@ void Weg::vKopf() {
 
 // Simuliert alle auf dem Weg befindlichen Fahrzeuge durch eine range-based loop
 void Weg::vSimulieren() {
-	for (auto const &fahrzeug : p_pFahrzeuge) {
-		fahrzeug->vSimulieren();
+	// Aktualisierung der Fahrzeuge
+	p_pFahrzeuge.vAktualisieren();
+
+	// Iteration über die Fahrzeuge
+	for (vIterator it = p_pFahrzeuge.begin(); it != p_pFahrzeuge.end();) {
+		try {
+			// Simulation und Zeichnen des Fahrzeugs
+			(*it)->vSimulieren();
+			(*it)->vZeichnen(*this);
+			it++;
+		} catch (Fahrausnahme *pFahrausnahme) {
+			it++;
+			// Bearbeitung der Fahrausnahme
+			pFahrausnahme->vBearbeiten();
+		}
 	}
+
+	// Aktualisieren der Fahrzeuge
+	p_pFahrzeuge.vAktualisieren();
 }
 
 // Definition der Memberfunktion vAusgeben()
 void Weg::vAusgeben() {
   Simulationsobjekt::vAusgeben();
-  std::string fahrzeuge;
-  int iterator = 0;
-  if(p_pFahrzeuge.empty()) {
-	  fahrzeuge = "( )";
-	} else fahrzeuge = "(";
-	for(auto fahrzeug = p_pFahrzeuge.cbegin(); fahrzeug != p_pFahrzeuge.cend(); fahrzeug++) {
-		iterator++;
-		std::string fahrzeug_name = fahrzeug->get()->getName();
-		if(iterator == p_pFahrzeuge.size()) {
-		  fahrzeuge += fahrzeug_name + ")";
-		} else {
-			fahrzeuge += fahrzeug_name + ",";
-		}
-	}
   std::cout << std::resetiosflags(std::ios::adjustfield)
 			<< std::setiosflags(std::ios::right)
 		    << std::setw(30) << p_dLaenge
-		    << std::setw(30) << fahrzeuge;
+		    << std::setw(30) << "( ";
+  for (vIterator it = p_pFahrzeuge.begin(); it != p_pFahrzeuge.end(); it++) {
+	  std::cout << (*it)->getName() << " ";
+  }
+  std::cout << ")" << std::endl;
 }
 
 
 // Definition der Memberfunktion vAusgeben() mit ostream
-void Weg::vAusgeben(std::ostream& o) const {
+std::ostream& Weg::vAusgeben(std::ostream& o) {
   Simulationsobjekt::vAusgeben(o);
-  std::string fahrzeuge;
-  int iterator = 0;
-  if(p_pFahrzeuge.empty()) {
-	  fahrzeuge = "( )";
-	} else fahrzeuge = "(";
-	for(auto fahrzeug = p_pFahrzeuge.cbegin(); fahrzeug != p_pFahrzeuge.cend(); fahrzeug++) {
-		iterator++;
-		std::string fahrzeug_name = fahrzeug->get()->getName();
-		if(iterator == p_pFahrzeuge.size()) {
-		  fahrzeuge += fahrzeug_name + ")";
-		} else {
-			fahrzeuge += fahrzeug_name + ",";
-		}
-	}
-    o << std::resetiosflags(std::ios::adjustfield)
+  o << std::resetiosflags(std::ios::adjustfield)
       << std::setiosflags(std::ios::right)
       << std::setw(30) << p_dLaenge
-      << std::setw(30) << fahrzeuge;
+      << std::setw(30) << "( ";
+  for (vIterator it = p_pFahrzeuge.begin(); it != p_pFahrzeuge.end(); it++) {
+	  o << (*it)->getName() << " ";
+  }
+  o << ")" << std::endl;
+  return o;
 }
 
 
 
-// Hinzufügen eines neuen Fahrzeugs in die Fahrzeugliste eines Weges
+// Hinzufügen eines neuen Fahrzeugs in die Fahrzeugliste eines Weges (Fahren)
 void Weg::vAnnahme(std::unique_ptr<Fahrzeug> fahrzeug) {
-	fahrzeug->setAbschnittStrecke(0);
+	// Setzen des Fahrzeugs auf den neuen Weg
 	fahrzeug->vNeueStrecke(*this);
+
+	// Setzen des Fahrzeugs auf die Fahrzeugliste des Weges
 	p_pFahrzeuge.push_back(std::move(fahrzeug));
+
+	// Aktualisieren der Liste
+	p_pFahrzeuge.vAktualisieren();
+}
+
+// Hinzufügen eines neuen Fahrzeugs in die Fahrzeugliste eines Weges (Parken)
+void Weg::vAnnahme(std::unique_ptr<Fahrzeug> fahrzeug, double dStartzeitpunkt) {
+	// Setzen des Fahrzeugs auf den neuen Weg
+	fahrzeug->vNeueStrecke(*this, dStartzeitpunkt);
+
+	// Setzen des Fahrzeugs auf die Fahrzeugliste des Weges
+	p_pFahrzeuge.push_front(std::move(fahrzeug));
+
+	// Aktualisieren der Liste
+	p_pFahrzeuge.vAktualisieren();
+}
+
+// Löschen eines Fahrzeugs aus dem Weg
+std::unique_ptr<Fahrzeug> Weg::pAbgabe(Fahrzeug& pFahrzeug) {
+	// Iteration über die Fahrzeugsliste zum Finden des gewünschten Fahrzeugs
+	for(vIterator it = p_pFahrzeuge.begin(); it != p_pFahrzeuge.end(); it++) {
+		// Überprüfen des Iterationselementes mit gewünschtem Fahrzeug
+		if((*it).get() == &pFahrzeug) {
+			// Lokale Variable zur Zwischenspeicherung
+			std::unique_ptr<Fahrzeug> lokal = std::move(*it);
+			// Löschen des Fahrzeugs aus der Liste
+			p_pFahrzeuge.erase(it);
+			p_pFahrzeuge.vAktualisieren();
+			return lokal;
+		}
+	}
+	return nullptr;
 }
 
 // Überladung des << Operators
-std::ostream& operator<<(std::ostream& o, const Weg& weg) {
+std::ostream& operator<<(std::ostream& o, Weg& weg) {
 	weg.vAusgeben(o);
 	return o;
 }

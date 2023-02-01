@@ -1,6 +1,7 @@
 #include <iomanip>
 #include <cmath>
 #include "PKW.h"
+#include "SimuClient.h"
 
 // Standardkonstruktor
 PKW::PKW() : Fahrzeug() {
@@ -94,6 +95,12 @@ void PKW::vSimulieren() {
 	if(p_dTankinhalt < 0) p_dTankinhalt = 0;
 }
 
+// Zeichnen des PKWs im Simuserver
+void PKW::vZeichnen(const Weg& weg) const {
+	double relPos = p_dAbschnittStrecke / weg.getLaenge();
+	bZeichnePKW(p_sName, weg.getName(), relPos, dGeschwindigkeit(), p_dTankinhalt);
+}
+
 // Definition für die override Memberfunktion vAusgeben()
 void PKW::vAusgeben() {
 	// Der Gesamtverbrauch wird durch die GesamtStrecke und den Verbrauch pro 100km berechnet
@@ -108,7 +115,7 @@ void PKW::vAusgeben() {
 }
 
 // Definition für die override Memberfunktion vAusgeben()
-void PKW::vAusgeben(std::ostream& o) const {
+std::ostream& PKW::vAusgeben(std::ostream& o) {
 	// Der Gesamtverbrauch wird durch die GesamtStrecke und den Verbrauch pro 100km berechnet
 	double dGesamtverbrauch = p_dGesamtStrecke / 100 * p_dVerbrauch;
 	Simulationsobjekt::vAusgeben(o);
@@ -118,4 +125,5 @@ void PKW::vAusgeben(std::ostream& o) const {
 		<< std::setw(30)
 		<< std::round(p_dTankinhalt * 1000.0) / 1000.0
 		<< std::endl;
+	return o;
 }

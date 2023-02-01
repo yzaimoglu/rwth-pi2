@@ -13,16 +13,19 @@ public:
 	Fahrrad(std::string sName, double dMaxGeschwindigkeit);
 
 	// Funktion für die aktuelle Geschwindigkeit
-	double dGeschwindigkeit() override;
+	double dGeschwindigkeit() const override;
 
 	// Funktion zur tabellarischen Ausgabe der Spezifikationen des Fahrzeugs
 	void vAusgeben() override;
 
 	// Funktion zur Ausgabe der Daten, genutzt zusammen mit der Überladung des Operators <<
-	void vAusgeben(std::ostream& o) const override;
+	virtual std::ostream& vAusgeben(std::ostream& o) override;
 
 	// Funktion zum Simulieren
 	void vSimulieren() override;
+
+	// Funktion zum Zeichnen, geerbt von Fahrzeug
+	virtual void vZeichnen(const Weg&) const override;
 
 	// Destruktor
 	~Fahrrad();

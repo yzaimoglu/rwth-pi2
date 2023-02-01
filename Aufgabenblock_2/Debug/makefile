@@ -55,7 +55,7 @@ main-build: Aufgabenblock_2
 Aufgabenblock_2: $(OBJS) $(USER_OBJS) makefile $(OPTIONAL_TOOL_DEPS)
 	@echo 'Building target: $@'
 	@echo 'Invoking: MacOS X C++ Linker'
-	g++  -o "Aufgabenblock_2" $(OBJS) $(USER_OBJS) $(LIBS)
+	g++ -L/Users/yagi/boost -o "Aufgabenblock_2" $(OBJS) $(USER_OBJS) $(LIBS)
 	@echo 'Finished building target: $@'
 	@echo ' '
 

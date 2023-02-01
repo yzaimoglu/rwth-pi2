@@ -1,6 +1,7 @@
 #include <math.h>
 #include <iomanip>
 #include "Fahrrad.h"
+#include "SimuClient.h"
 
 // Standardkonstruktor
 Fahrrad::Fahrrad() : Fahrzeug() {
@@ -19,7 +20,7 @@ Fahrrad::~Fahrrad() {
 }
 
 // Definition der override Memberfunktion dGeschwindigkeit()
-double Fahrrad::dGeschwindigkeit() {
+double Fahrrad::dGeschwindigkeit() const {
 	if(p_dMaxGeschwindigkeit < 12) {
 		double dGeschwindigkeit = p_dMaxGeschwindigkeit;
 		return dGeschwindigkeit;
@@ -50,7 +51,7 @@ void Fahrrad::vAusgeben() {
 }
 
 // Definition der override Memberfunktion vAusgeben()
-void Fahrrad::vAusgeben(std::ostream& o) const {
+std::ostream& Fahrrad::vAusgeben(std::ostream& o) {
 	Simulationsobjekt::vAusgeben(o);
 	Fahrzeug::vAusgeben(o);
 	o << std::setw(30)
@@ -58,6 +59,14 @@ void Fahrrad::vAusgeben(std::ostream& o) const {
 		<< std::setw(30)
 		<< 0
 		<< std::endl;
+	return o;
+}
+
+// Zeichnen des Fahrrads im Simuserver
+void Fahrrad::vZeichnen(const Weg& weg) const {
+	// Finden der relativen Position & Zeichnen des Fahrrads
+	double relPos = p_dAbschnittStrecke / weg.getLaenge();
+	bZeichneFahrrad(p_sName, weg.getName(), relPos, dGeschwindigkeit());
 }
 
 // Definition der override Memberfunktion vSimulieren()

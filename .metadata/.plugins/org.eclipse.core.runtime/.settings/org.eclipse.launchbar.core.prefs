@@ -9,4 +9,4 @@ org.eclipse.launchbar.core.descriptorType.default\:Aufgabenblock_1\ (1)/activeLa
 org.eclipse.launchbar.core.descriptorType.default\:Aufgabenblock_1\ (1)/activeLaunchTarget=org.eclipse.launchbar.core.launchTargetType.local\:Local
 org.eclipse.launchbar.core.descriptorType.default\:Aufgabenblock_1/activeLaunchMode=debug
 org.eclipse.launchbar.core.descriptorType.default\:Aufgabenblock_1/activeLaunchTarget=org.eclipse.launchbar.core.launchTargetType.local\:Local
-org.eclipse.launchbar.core.descriptorType.default\:Aufgabenblock_2\ Debug/activeLaunchMode=debug
+org.eclipse.launchbar.core.descriptorType.default\:Aufgabenblock_2\ Debug/activeLaunchMode=run

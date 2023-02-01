@@ -1,14 +1,13 @@
 #pragma once
 #include <iostream>
-#include "Simulationsobjekt.h"
+#include "Weg.h"
 
 #ifndef FAHRZEUG_H_
 #define FAHRZEUG_H_
 
-class Weg;
-class Verhalten;
-
 extern double dGlobaleZeit;
+
+class Verhalten;
 
 // Klasse Fahrzeug
 class Fahrzeug : public Simulationsobjekt {
@@ -59,7 +58,12 @@ public:
 	void setAbschnittStrecke(double dAbschnittStrecke) {
 		p_dAbschnittStrecke += dAbschnittStrecke;
 		// Aufrufen des Setters für die Gesamtstrecke
-		setGesamtStrecke(p_dAbschnittStrecke);
+		setGesamtStrecke(dAbschnittStrecke);
+	}
+
+	// Setzt die Abschnittstrecke auf 0, genutzt bei Erreichen des Streckenendes
+	void resetAbschnittStrecke() {
+		p_dAbschnittStrecke = 0;
 	}
 
 	// Funktion für die Überschrift der Tabelle für vAusgeben()
@@ -67,14 +71,15 @@ public:
 
 	// Funktion zur Speicherung des Verhaltens
 	void vNeueStrecke(Weg& weg);
+	void vNeueStrecke(Weg& weg, double dStartzeitpunkt);
 
 	// Funktion zum Simulieren
 	virtual void vSimulieren();
 
 	// Funktion für die aktuelle Geschwindigkeit
-	virtual double dGeschwindigkeit() {
+	virtual double dGeschwindigkeit() const {
 		return p_dMaxGeschwindigkeit;
-	};
+	}
 
 	// Funktion zum Tanken
 	// Standardwert so, dass der Tank vollgetankt wird
@@ -83,8 +88,11 @@ public:
 	// Funktion zur tabellarischen Ausgabe der Spezifikationen des Fahrzeugs
 	virtual void vAusgeben();
 
+	// Funktion zum Zeichnen in den Simulationsserver
+	virtual void vZeichnen(const Weg&) const {};
+
 	// Funktion zur Ausgabe der Daten, genutzt zusammen mit der Überladung des Operators <<
-	virtual void vAusgeben(std::ostream&) const;
+	virtual std::ostream& vAusgeben(std::ostream&);
 
 	// Überladung von einigen Operatoren (< & =)
 	bool operator<(const Fahrzeug& fahrzeug);
@@ -101,6 +109,6 @@ public:
 };
 
 // Überladung des << Operators außerhalb der Klasse
-std::ostream& operator<<(std::ostream&, const Fahrzeug&);
+std::ostream& operator<<(std::ostream&, Fahrzeug&);
 
 #endif

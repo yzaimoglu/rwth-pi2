@@ -3,12 +3,16 @@
 #include <iomanip>
 #include <vector>
 #include <cmath>
+#include <random>
 #include "Fahrzeug.h"
 #include "Fahrrad.h"
 #include "PKW.h"
 #include "Weg.h"
 #include "Simulationsobjekt.h"
 #include "Tempolimit.h"
+#include "SimuClient.h"
+#include "vertagt_liste.h"
+
 
 // Die globale Variable dGlobaleZeit, damit die Fahrzeuge wissen, wie lange diese simulieren sollen
 double dGlobaleZeit;
@@ -308,19 +312,25 @@ void vAufgabe_AB1() {
 }*/
 
 void vAufgabe_4() {
+	// Erstellen eines Weges
 	Weg* weg = new Weg("Teststraße", 100.0, INNERORTS);
+
+	// Erstellen von vier Fahrzeugen
 	std::unique_ptr<Fahrzeug> fahrzeug = std::make_unique<PKW>("PKW1", 100.0, 100.0, 55.0);
 	std::unique_ptr<Fahrzeug> fahrzeug2 = std::make_unique<PKW>("PKW2", 100.0, 100.0, 55.0);
 	std::unique_ptr<Fahrzeug> fahrzeug3 = std::make_unique<PKW>("PKW3", 100.0, 100.0, 55.0);
 	std::unique_ptr<Fahrzeug> fahrzeug4 = std::make_unique<Fahrrad>("Fahrrad", 30);
 
+	// Setzen der Fahrzeuge auf den weg, durch move(), da die Fahrzeuge unique_ptr sind
+	weg->vAnnahme(std::move(fahrzeug));
+	weg->vAnnahme(std::move(fahrzeug2));
+	weg->vAnnahme(std::move(fahrzeug3));
+	weg->vAnnahme(std::move(fahrzeug4));
 
-	weg->vAnnahme(move(fahrzeug));
-	weg->vAnnahme(move(fahrzeug2));
-	weg->vAnnahme(move(fahrzeug3));
-	weg->vAnnahme(move(fahrzeug4));
+	// Ausgabe des Weges
 	weg->vKopf();
 	std::cout << *weg << std::endl;
+
 	// Code Snippet
 	/*std::cout << *weg << std::endl;
 	std::list<std::unique_ptr<Fahrzeug>>* p_pFahrzeuge = weg->getFahrzeuge();
@@ -331,29 +341,32 @@ void vAufgabe_4() {
 }
 
 void vAufgabe_5() {
-	Weg* weg = new Weg("Teststraße", 100.0, INNERORTS);
+	// Erstellen eines Weges
+	Weg* weg = new Weg("Teststrasse", 20.0, INNERORTS);
+
+	// Erstellen von vier Fahrzeugen
 	std::unique_ptr<Fahrzeug> fahrzeug = std::make_unique<PKW>("PKW1", 100.0, 100.0, 55.0);
 	std::unique_ptr<Fahrzeug> fahrzeug2 = std::make_unique<PKW>("PKW2", 100.0, 100.0, 55.0);
 	std::unique_ptr<Fahrzeug> fahrzeug3 = std::make_unique<PKW>("PKW3", 100.0, 100.0, 55.0);
 	std::unique_ptr<Fahrzeug> fahrzeug4 = std::make_unique<Fahrrad>("Fahrrad", 30);
 
-
+	// Setzen der Fahrzeuge auf den weg, durch move(), da die Fahrzeuge unique_ptr sind
 	weg->vAnnahme(std::move(fahrzeug));
 	weg->vAnnahme(std::move(fahrzeug2));
 	weg->vAnnahme(std::move(fahrzeug3));
 	weg->vAnnahme(std::move(fahrzeug4));
+
+	// Ausgabe des Weges
 	weg->vKopf();
 	std::cout << *weg << std::endl << std::endl;
 
 	// Definieren des Zeitschritts
 	double dZeitschritt = 0.2;
-	int iAnzahlZeitschritte = 500;
-	double dTankzeit = 3.0;
+	int iAnzahlZeitschritte = 400;
+	double dTankzeit = 2.5;
 
-	std::list<std::unique_ptr<Fahrzeug>>* p_pFahrzeuge = weg->getFahrzeuge();
 	// Wiederholen des Ganzen, bis alle Zeitschritte gemacht wurden
 	for(dGlobaleZeit = 0; dGlobaleZeit <= (dZeitschritt * iAnzahlZeitschritte); dGlobaleZeit += dZeitschritt) {
-		p_pFahrzeuge = weg->getFahrzeuge();
 		std::cout << std::setw(50) << std::setfill('-') << "-" << std::setfill(' ') << std::endl;
 		std::cout << "Globale-Zeit: " << dGlobaleZeit << std::endl;
 		std::cout << std::setw(50) << std::setfill('-') << "-" << std::setfill(' ') << std::endl;
@@ -361,7 +374,7 @@ void vAufgabe_5() {
 		weg->vSimulieren();
 		Fahrzeug::vKopf();
 		// Schleife zum Iterieren durch den fahrzeugVektor
-		for (auto const &fahrzeug : *p_pFahrzeuge) {
+		for (auto const &fahrzeug : *weg->getFahrzeuge()) {
 			fahrzeug->vAusgeben();
 		}
 
@@ -369,15 +382,227 @@ void vAufgabe_5() {
 		// Modulo Operator von den zwei doubles, da es sich hier um zwei doubles handelt und immer ein sehr kleiner Restwert entsteht
 		// wird das Ergebnis durch epsilon 0.001 subtrahiert, da 0.001 genau genug ist für dieses Beispiel
 		if(std::fmod(dGlobaleZeit, dTankzeit)-0.001 < 0) {
-			for (auto const &fahrzeug : *p_pFahrzeuge) {
+			for (auto const &fahrzeug : *weg->getFahrzeuge()) {
 				fahrzeug->dTanken();
 			}
 		}
 	}
 }
 
+void vAufgabe_6() {
+	// Erstellen von zwei Wegen
+	Weg* wegI = new Weg("Test_1", 200.0, LANDSTRASSE);
+	Weg* wegA = new Weg("Test_2", 500.0, AUTOBAHN);
+
+	// Erstellen von fünf Fahrzeugen
+	std::unique_ptr<Fahrzeug> fahrzeug = std::make_unique<PKW>("PKW1", 100.0, 15.0, 55.0);
+	std::unique_ptr<Fahrzeug> fahrzeug2 = std::make_unique<PKW>("PKW2", 100.0, 15.0, 55.0);
+	std::unique_ptr<Fahrzeug> fahrzeug3 = std::make_unique<PKW>("PKW3", 100.0, 30.0, 55.0);
+	std::unique_ptr<Fahrzeug> fahrzeug4 = std::make_unique<Fahrrad>("Fahrrad", 30);
+	std::unique_ptr<Fahrzeug> fahrzeug5 = std::make_unique<Fahrrad>("BMX", 30);
+
+	// Intialisierung der Grafik auf dem SimuServer
+	bInitialisiereGrafik(800, 500);
+
+	// Setzen der Koordinaten für die Straße, gerade Linie
+	int koordinaten[4] = { 700, 250, 10, 250 };
+
+	// Zeichnen der Straße
+	bZeichneStrasse(wegI->getName(), wegA->getName(), wegI->getLaenge(), 2, koordinaten);
+
+	// Setzen der Fahrzeuge auf die Wege
+	wegI->vAnnahme(std::move(fahrzeug));
+	wegI->vAnnahme(std::move(fahrzeug2), 0.5);
+	wegI->vAnnahme(std::move(fahrzeug3), 3);
+	wegA->vAnnahme(std::move(fahrzeug4));
+	wegI->vAnnahme(std::move(fahrzeug5));
+
+	// Ausgabe der Wege
+	wegI->vKopf();
+	std::cout << *wegI << std::endl;
+	std::cout << *wegA << std::endl << std::endl;
+
+	// Definieren des Zeitschritts
+	double dZeitschritt = 0.4;
+	int iAnzahlZeitschritte = 100;
+	double dTankzeit = 3.0;
+
+	// Wiederholen des Ganzen, bis alle Zeitschritte gemacht wurden
+	for(dGlobaleZeit = 0; dGlobaleZeit <= (dZeitschritt * iAnzahlZeitschritte); dGlobaleZeit += dZeitschritt) {
+		vSetzeZeit(dGlobaleZeit);
+		std::cout << std::setw(50) << std::setfill('-') << "-" << std::setfill(' ') << std::endl;
+		std::cout << "Globale-Zeit: " << dGlobaleZeit << std::endl;
+		std::cout << std::setw(50) << std::setfill('-') << "-" << std::setfill(' ') << std::endl;
+
+		wegI->vSimulieren();
+		wegA->vSimulieren();
+		Fahrzeug::vKopf();
+		// Schleife zum Iterieren durch den fahrzeugVektor
+		for (auto const &fahrzeug : *wegI->getFahrzeuge()) {
+			fahrzeug->vAusgeben();
+		}
+		for (auto const &fahrzeug : *wegA->getFahrzeuge()) {
+			fahrzeug->vAusgeben();
+		}
+
+		// Volltanken der PKWs
+		// Modulo Operator von den zwei doubles, da es sich hier um zwei doubles handelt und immer ein sehr kleiner Restwert entsteht
+		// wird das Ergebnis durch epsilon 0.001 subtrahiert, da 0.001 genau genug ist für dieses Beispiel
+		if(std::fmod(dGlobaleZeit, dTankzeit)-0.001 < 0) {
+			for (auto const &fahrzeug : *wegI->getFahrzeuge()) {
+				fahrzeug->dTanken();
+			}
+			for (auto const &fahrzeug : *wegA->getFahrzeuge()) {
+				fahrzeug->dTanken();
+			}
+		}
+		vSleep(1000);
+	}
+	vBeendeGrafik();
+}
+
+void vAufgabe_6a() {
+	// Testen der vertagt_liste und vertagt_aktion Dateien
+	using namespace vertagt;
+	VListe<int> vListe;
+	typedef VListe<int>::iterator vListeIntIterator;
+
+	// Zufallszahlgeneration
+	static std::mt19937 device(0);
+	std::uniform_int_distribution<int> dist(1, 10);
+
+	// 10 Zufallszahlen generieren
+	for(int i = 1; i <= 10; i++) {
+		vListe.push_back(dist(device));
+	}
+	vListe.vAktualisieren();
+
+	// Generierten Zahlen ausgeben
+	for(vListeIntIterator it = vListe.begin(); it != vListe.end(); it++) {
+		std::cout << (*it) << " ";
+	}
+
+	// Alle Elemente > 5 löschen
+	for(vListeIntIterator it = vListe.begin(); it != vListe.end(); it++) {
+		if((*it) > 5) {
+			vListe.erase(it);
+		}
+	}
+	std::cout << std::endl << std::endl;
+
+	// Ausgabe sollte die gleiche sein, da vAktualisieren noch nicht durchgeführt wurde
+	for(vListeIntIterator it = vListe.begin(); it != vListe.end(); it++) {
+		std::cout << (*it) << " ";
+	}
+	std::cout << std::endl << std::endl;
+	vListe.vAktualisieren();
+
+	// Ausgabe sollte sich geändert haben
+	for(vListeIntIterator it = vListe.begin(); it != vListe.end(); it++) {
+		std::cout << (*it) << " ";
+	}
+	std::cout << std::endl << std::endl;
+
+	vListe.push_front(dist(device));
+	vListe.push_back(dist(device));
+
+	// Ausgabe sollte gleich sein
+	for(vListeIntIterator it = vListe.begin(); it != vListe.end(); it++) {
+		std::cout << (*it) << " ";
+	}
+	std::cout << std::endl << std::endl;
+	vListe.vAktualisieren();
+
+	// Ausgabe sollte verändert sein
+	for(vListeIntIterator it = vListe.begin(); it != vListe.end(); it++) {
+		std::cout << (*it) << " ";
+	}
+}
+
+void vAufgabe_7() {
+	// Erzeugung der vier gewünschten Kreuzungen
+	std::shared_ptr<Kreuzung> kr1 = std::make_shared<Kreuzung>("kr1", 100000);
+	std::shared_ptr<Kreuzung> kr2 = std::make_shared<Kreuzung>("kr2", 100000);
+	std::shared_ptr<Kreuzung> kr3 = std::make_shared<Kreuzung>("kr3", 100000);
+	std::shared_ptr<Kreuzung> kr4 = std::make_shared<Kreuzung>("kr4", 100000);
+
+	// Erzeugung der gewünschten Fahrzeuge
+	std::unique_ptr<Fahrzeug> fahrzeug1 = std::make_unique<PKW>("PKW1", 30, 20, 600);
+	std::unique_ptr<Fahrzeug> fahrzeug2 = std::make_unique<PKW>("PKW2", 30, 20, 600);
+	std::unique_ptr<Fahrzeug> fahrzeug3 = std::make_unique<PKW>("PKW3", 30, 20, 600);
+	std::unique_ptr<Fahrzeug> fahrzeug4 = std::make_unique<Fahrrad>("Fahrrad1", 10);
+	std::unique_ptr<Fahrzeug> fahrzeug5 = std::make_unique<Fahrrad>("Fahrrad2", 10);
+
+	// Initialisierung der Grafik auf dem SimuServer
+	bInitialisiereGrafik(1000, 1000);
+
+	// Zeichnen der Kreuzungen
+	bZeichneKreuzung(680, 40);
+	bZeichneKreuzung(680, 300);
+	bZeichneKreuzung(680, 570);
+	bZeichneKreuzung(320, 300);
+
+	// Initialisierungen der Koordinaten
+	int s1[] = { 680, 40, 680, 300 };
+	int s2[] = { 680, 300, 850, 300, 970, 390, 970, 500, 850, 570, 680, 570 };
+	int s3[] = { 680, 300, 680, 570 };
+	int s4[] = { 680, 300, 320, 300 };
+	int s5[] = { 680, 570, 500, 570, 350, 510, 320, 420, 320, 300 };
+	int s6[] = { 320, 300, 170, 300, 70, 250, 80, 90, 200, 60, 320, 150, 320, 300 };
+
+	// Zeichnen der Straßen
+	bZeichneStrasse("W12", "W21", 40, 2, s1);
+	bZeichneStrasse("W23a", "W32a", 115, 6, s2);
+	bZeichneStrasse("W23b", "W32b", 40, 2, s3);
+	bZeichneStrasse("W24", "W42", 55, 2, s4);
+	bZeichneStrasse("W34", "W43", 85, 5, s5);
+	bZeichneStrasse("W44a", "W44b", 130, 7, s6);
+
+	// Verbindung der Straßen mit den Kreuzungen
+	kr1->vVerbinde("W12", "W21", 40, kr1, kr2, Tempolimit::INNERORTS, false);
+	kr2->vVerbinde("W23a", "W32a", 115, kr2, kr3, Tempolimit::AUTOBAHN, false);
+	kr2->vVerbinde("W23b", "W32b", 40, kr2, kr3, Tempolimit::INNERORTS, false);
+	kr2->vVerbinde("W24", "W42", 55, kr2, kr4, Tempolimit::INNERORTS, false);
+	kr3->vVerbinde("W34", "W43", 85, kr3, kr4, Tempolimit::AUTOBAHN, false);
+	kr4->vVerbinde("W44a", "W44b", 130, kr4, kr4, Tempolimit::LANDSTRASSE, false);
+
+	// Setzen der Fahrzeuge auf die Kreuzungen
+	kr2->vAnnahme(std::move(fahrzeug2), 0);
+	kr1->vAnnahme(std::move(fahrzeug3), 0);
+	kr1->vAnnahme(std::move(fahrzeug4), 0);
+	kr1->vAnnahme(std::move(fahrzeug1), 0);
+
+	// Definieren des Zeitschritts
+	double dZeitschritt = 0.5;
+	int iAnzahlZeitschritte = 20;
+	double dTankzeit = 3.0;
+
+	// Wiederholen des Ganzen, bis alle Zeitschritte gemacht wurden
+	for(dGlobaleZeit = 0; dGlobaleZeit <= (dZeitschritt * iAnzahlZeitschritte); dGlobaleZeit += dZeitschritt) {
+		// Setzen der Globalzeit im SimuServer
+		vSetzeZeit(dGlobaleZeit);
+		std::cout << std::setw(50) << std::setfill('-') << "-" << std::setfill(' ') << std::endl;
+		std::cout << "Globale-Zeit: " << dGlobaleZeit << std::endl;
+		std::cout << std::setw(50) << std::setfill('-') << "-" << std::setfill(' ') << std::endl;
+
+		// Simulation der Kreuzungen
+		kr1->vSimulieren();
+		kr2->vSimulieren();
+		kr3->vSimulieren();
+		kr4->vSimulieren();
+
+		vSleep(1000);
+	}
+	std::cout << "Beendet" << std::endl;
+	vBeendeGrafik();
+}
+
+void vAufgabe_8() {
+
+}
+
 int main() {
 	dGlobaleZeit = 0.0;
-	vAufgabe_5();
+	vAufgabe_7();
 	return 0;
 }

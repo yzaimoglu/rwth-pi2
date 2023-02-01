@@ -2,6 +2,9 @@
 #include <iomanip>
 #include "Fahrzeug.h"
 #include "Verhalten.h"
+#include "Parken.h"
+#include "Fahren.h"
+#include "Fahrausnahme.h"
 
 // Standardkonstruktor
 // Initialisierungsliste:
@@ -73,14 +76,12 @@ void Fahrzeug::vSimulieren() {
 	// Der Zeitraum, in welchem das Fahrzeug simuliert wird
 	double dZeitraum = dGlobaleZeit - p_dZeit;
 
+	// Exception Handling Fahrausnahme
 	// Berechnung der Teilstrecke durch die dStrecke Methode in Verhalten
 	double dTeilstrecke = p_pVerhalten->dStrecke(*this, dZeitraum);
-	std::cout << dTeilstrecke << std::endl;
 
-	// --- Wird über dStrecke übernommen ---
-	// Die Gesamtstrecke, die das Fahrzeug innerhalb des Zeitraums mit der Maximalgeschwindigkeit fährt
-	// p_dGesamtStrecke += dTeilstrecke;
-	// p_dAbschnittStrecke += dTeilstrecke;
+	// --- Wird von dStrecke übernommen ---
+	//	setAbschnittStrecke(dTeilstrecke);
 
 	// Die neue Zeit der letzten Simulation zu der globalen Zeit setzen
 	p_dGesamtZeit += dZeitraum;
@@ -93,22 +94,32 @@ double Fahrzeug::dTanken(double dMenge) {
 	return 0.0;
 }
 
-// Erzeugung eines geeigneten Objekts und Speichern in p_pVerhalten
+// Erzeugung eines geeigneten Objekts (Fahren) und Speichern in p_pVerhalten
 void Fahrzeug::vNeueStrecke(Weg& weg) {
 	// Bei Vorhandensein eines Verhaltens, Löschen des Verhaltens
 	if(p_pVerhalten) {
 		delete p_pVerhalten;
 	}
-	//p_pVerhalten = new Verhalten(weg);
+	p_pVerhalten = new Fahren(weg);
+}
+
+// Erzeugung eines geeigneten Objekts (Parken) und Speichern in p_pVerhalten
+void Fahrzeug::vNeueStrecke(Weg& weg, double dStartzeitpunkt) {
+	// Bei Vorhandensein eines Verhaltens, Löschen des Verhaltens
+	if(p_pVerhalten) {
+		delete p_pVerhalten;
+	}
+	p_pVerhalten = new Parken(weg, dStartzeitpunkt);
 }
 
 // Definition der Memberfunktion vAusgeben()
-void Fahrzeug::vAusgeben(std::ostream& o) const {
+std::ostream& Fahrzeug::vAusgeben(std::ostream& o) {
 	o << std::resetiosflags(std::ios::adjustfield)
 			<< std::setiosflags(std::ios::right)
 			<< std::setw(30) << p_dMaxGeschwindigkeit
 			<< std::setw(30) << p_dMaxGeschwindigkeit
 			<< std::setw(30) << p_dGesamtStrecke;
+	return o;
 }
 
 // Überladung des < Operators
@@ -130,7 +141,7 @@ Fahrzeug& Fahrzeug::operator=(const Fahrzeug& fahrzeug) {
 }
 
 // Überladung des << Operators
-std::ostream& operator<<(std::ostream& o, const Fahrzeug& fahrzeug) {
+std::ostream& operator<<(std::ostream& o, Fahrzeug& fahrzeug) {
 	fahrzeug.vAusgeben(o);
 	return o;
 }

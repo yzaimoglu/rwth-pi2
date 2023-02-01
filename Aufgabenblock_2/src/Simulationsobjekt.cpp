@@ -33,13 +33,14 @@ void Simulationsobjekt::vAusgeben() {
 }
 
 // Definition der Memberfunktion vAusgeben()
-void Simulationsobjekt::vAusgeben(std::ostream& o) const {
+std::ostream& Simulationsobjekt::vAusgeben(std::ostream& o) {
 	o << std::resetiosflags(std::ios::adjustfield)
 			<< std::setiosflags(std::ios::left)
 			<< std::setw(6) << p_iID
 			<< std::setw(10) << p_sName
 			<< std::resetiosflags(std::ios::adjustfield)
 			<< std::setiosflags(std::ios::right);
+	return o;
 }
 
 // Überladung des == Operators
