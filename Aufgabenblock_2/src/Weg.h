@@ -55,6 +55,11 @@ public:
 		return p_dLaenge;
 	}
 
+	// Returned einen bool für das Ueberholverbot
+	bool getUeberholverbot() {
+		return p_bUeberholverbot;
+	}
+
 	// Fahrzeuge als vertagt_liste
 	vertagt::VListe<std::unique_ptr<Fahrzeug>>* getFahrzeuge() {
 		return &p_pFahrzeuge;

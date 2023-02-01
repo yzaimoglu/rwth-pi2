@@ -13,6 +13,48 @@ double Fahren::dStrecke(Fahrzeug& aFahrzeug, double dZeitIntervall) {
 	// Berechnung der Teilstrecke
 	double dTeilstrecke = aFahrzeug.dGeschwindigkeit() * dZeitIntervall;
 
+//	// Wenn das Überholverbot gilt
+//	if(this->getWeg()->getUeberholverbot()) {
+//		std::cout << "ÜBERHOLVERBOT" << std::endl;
+//
+//		// Fahrzeuge auf dem Weg
+//		vertagt::VListe<std::unique_ptr<Fahrzeug>>* fahrzeugeOnWeg = this->getWeg()->getFahrzeuge();
+//
+//		int type = -1;
+//		double toSet = -1;
+//
+//		// Iterieren über Fahrzeuge
+//		for(auto& fahrzeugOnWeg : *fahrzeugeOnWeg) {
+//			if(!((*fahrzeugOnWeg) == aFahrzeug)) {
+//				double fahrzeugOnWegTeilstrecke = (*fahrzeugOnWeg).dGeschwindigkeit() * dZeitIntervall;
+//				// Überprüfen ob Überholen stattfindet, wenn ja nicht überholen
+//				std::cout << aFahrzeug.getName() + ":::: " << aFahrzeug.getAbschnittStrecke() + dTeilstrecke << std::endl;
+//				std::cout << (*fahrzeugOnWeg).getName() + ":::: " << (*fahrzeugOnWeg).getAbschnittStrecke() + fahrzeugOnWegTeilstrecke<< std::endl;
+//
+//				// Überprüfen ob das Ende erreicht wird
+//				if((*fahrzeugOnWeg).getAbschnittStrecke() + fahrzeugOnWegTeilstrecke >= p_pWeg->getLaenge()) {
+//					type = 0;
+//					toSet = p_pWeg->getLaenge() - aFahrzeug.getAbschnittStrecke();
+//				} else if((*fahrzeugOnWeg).getAbschnittStrecke() + fahrzeugOnWegTeilstrecke >= aFahrzeug.getAbschnittStrecke() + dTeilstrecke) {
+//					type = 1;
+//					toSet = ((*fahrzeugOnWeg).getAbschnittStrecke() + fahrzeugOnWegTeilstrecke) * 0.99;
+//				}
+//			}
+//		}
+//
+//		switch (type) {
+//			case 0:
+//				aFahrzeug.setAbschnittStrecke(toSet);
+//				break;
+//			case 1:
+//				aFahrzeug.resetAbschnittStrecke();
+//				aFahrzeug.setAbschnittStrecke(toSet);
+//				break;
+//			default:
+//				break;
+//		}
+//	}
+
 	// Überprüfen ob die gefahrene Strecke die Länge überschreitet und setzen der Abschnittstrecke
 	if((aFahrzeug.getAbschnittStrecke() - p_pWeg->getLaenge()) == 0) {
 		// Throwen des Streckenendes, da das Streckenede erreicht wird

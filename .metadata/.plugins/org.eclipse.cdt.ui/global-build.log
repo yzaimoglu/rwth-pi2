@@ -4550,3 +4550,1139 @@ Invoking: MacOS X C++ Linker
 g++ -L/Users/yagi/boost -o "Aufgabenblock_2"  ./src/Fahrausnahme.o ./src/Fahren.o ./src/Fahrrad.o ./src/Fahrzeug.o ./src/Kreuzung.o ./src/Losfahren.o ./src/PKW.o ./src/Parken.o ./src/SimuClient.o ./src/SimuClientSocket.o ./src/Simulationsobjekt.o ./src/Streckenende.o ./src/Verhalten.o ./src/Weg.o ./src/main.o   
 Finished building target: Aufgabenblock_2
  
+22:33:03 **** Incremental Build of configuration Debug for project Aufgabenblock_2 ****
+make all 
+Building file: ../src/Fahrausnahme.cpp
+Invoking: GCC C++ Compiler
+g++ -std=c++17 -I/Users/yagi/boost -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"src/Fahrausnahme.d" -MT"src/Fahrausnahme.o" -o "src/Fahrausnahme.o" "../src/Fahrausnahme.cpp"
+In file included from ../src/Fahrausnahme.cpp:1:
+In file included from ../src/Fahrausnahme.h:4:
+../src/Fahrzeug.h:71:22: error: member access into incomplete type 'Verhalten'
+                return p_pVerhalten->getWeg()->getFahrzeuge();
+                                   ^
+../src/Fahrzeug.h:10:7: note: forward declaration of 'Verhalten'
+class Verhalten;
+      ^
+../src/Fahrzeug.h:76:22: error: member access into incomplete type 'Verhalten'
+                return p_pVerhalten->getWeg();
+                                   ^
+../src/Fahrzeug.h:10:7: note: forward declaration of 'Verhalten'
+class Verhalten;
+      ^
+2 errors generated.
+make: *** [src/Fahrausnahme.o] Error 1
+"make all" terminated with exit code 2. Build might be incomplete.
+22:33:26 **** Incremental Build of configuration Debug for project Aufgabenblock_2 ****
+make all 
+Building file: ../src/Fahrausnahme.cpp
+Invoking: GCC C++ Compiler
+g++ -std=c++17 -I/Users/yagi/boost -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"src/Fahrausnahme.d" -MT"src/Fahrausnahme.o" -o "src/Fahrausnahme.o" "../src/Fahrausnahme.cpp"
+In file included from ../src/Fahrausnahme.cpp:1:
+In file included from ../src/Fahrausnahme.h:4:
+../src/Fahrzeug.h:70:10: error: no viable conversion from returned value of type 'vertagt::VListe<std::unique_ptr<Fahrzeug>> *' to function return type 'vertagt::VListe<std::unique_ptr<Fahrzeug>>'
+                return p_pVerhalten->getWeg()->getFahrzeuge();
+                       ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../src/vertagt_liste.h:9:8: note: candidate constructor (the implicit copy constructor) not viable: no known conversion from 'vertagt::VListe<std::unique_ptr<Fahrzeug>> *' to 'const vertagt::VListe<std::unique_ptr<Fahrzeug>> &' for 1st argument; dereference the argument with *
+        class VListe
+              ^
+In file included from ../src/Fahrausnahme.cpp:1:
+In file included from ../src/Fahrausnahme.h:4:
+../src/Fahrzeug.h:75:10: error: non-const lvalue reference to type 'Weg' cannot bind to a temporary of type 'Weg *'
+                return p_pVerhalten->getWeg();
+                       ^~~~~~~~~~~~~~~~~~~~~~
+2 errors generated.
+make: *** [src/Fahrausnahme.o] Error 1
+"make all" terminated with exit code 2. Build might be incomplete.
+22:35:27 **** Incremental Build of configuration Debug for project Aufgabenblock_2 ****
+make all 
+Building file: ../src/Fahrausnahme.cpp
+Invoking: GCC C++ Compiler
+g++ -std=c++17 -I/Users/yagi/boost -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"src/Fahrausnahme.d" -MT"src/Fahrausnahme.o" -o "src/Fahrausnahme.o" "../src/Fahrausnahme.cpp"
+In file included from ../src/Fahrausnahme.cpp:1:
+In file included from ../src/Fahrausnahme.h:4:
+../src/Fahrzeug.h:70:10: error: no viable conversion from returned value of type 'Verhalten *' to function return type 'Verhalten'
+                return p_pVerhalten;
+                       ^~~~~~~~~~~~
+../src/Verhalten.h:8:7: note: candidate constructor (the implicit copy constructor) not viable: no known conversion from 'Verhalten *' to 'const Verhalten &' for 1st argument; dereference the argument with *
+class Verhalten {
+      ^
+../src/Verhalten.h:12:2: note: candidate constructor not viable: no known conversion from 'Verhalten *' to 'Weg &' for 1st argument
+        Verhalten(Weg& weg);
+        ^
+1 error generated.
+make: *** [src/Fahrausnahme.o] Error 1
+"make all" terminated with exit code 2. Build might be incomplete.
+22:35:43 **** Incremental Build of configuration Debug for project Aufgabenblock_2 ****
+make all 
+Building file: ../src/Fahrausnahme.cpp
+Invoking: GCC C++ Compiler
+g++ -std=c++17 -I/Users/yagi/boost -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"src/Fahrausnahme.d" -MT"src/Fahrausnahme.o" -o "src/Fahrausnahme.o" "../src/Fahrausnahme.cpp"
+In file included from ../src/Fahrausnahme.cpp:1:
+In file included from ../src/Fahrausnahme.h:4:
+../src/Fahrzeug.h:70:10: error: allocating an object of abstract class type 'Verhalten'
+                return *p_pVerhalten;
+                       ^
+../src/Verhalten.h:20:17: note: unimplemented pure virtual method 'dStrecke' in 'Verhalten'
+        virtual double dStrecke(Fahrzeug& aFzg, double dZeitIntervall) = 0;
+                       ^
+1 error generated.
+make: *** [src/Fahrausnahme.o] Error 1
+"make all" terminated with exit code 2. Build might be incomplete.
+22:36:35 **** Incremental Build of configuration Debug for project Aufgabenblock_2 ****
+make all 
+Building file: ../src/Fahrausnahme.cpp
+Invoking: GCC C++ Compiler
+g++ -std=c++17 -I/Users/yagi/boost -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"src/Fahrausnahme.d" -MT"src/Fahrausnahme.o" -o "src/Fahrausnahme.o" "../src/Fahrausnahme.cpp"
+Finished building: ../src/Fahrausnahme.cpp
+ 
+Building file: ../src/Fahren.cpp
+Invoking: GCC C++ Compiler
+g++ -std=c++17 -I/Users/yagi/boost -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"src/Fahren.d" -MT"src/Fahren.o" -o "src/Fahren.o" "../src/Fahren.cpp"
+../src/Fahren.cpp:17:5: error: value of type 'vertagt::VListe<std::unique_ptr<Fahrzeug>>' is not contextually convertible to 'bool'
+        if(*this->getWeg()->getFahrzeuge()) {
+           ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+In file included from ../src/Fahren.cpp:1:
+In file included from ../src/Fahren.h:4:
+In file included from ../src/Verhalten.h:1:
+In file included from ../src/Fahrzeug.h:2:
+In file included from /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/iostream:37:
+In file included from /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/ios:214:
+In file included from /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/__locale:15:
+In file included from /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/string:522:
+In file included from /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/algorithm:653:
+In file included from /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/functional:500:
+In file included from /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/__functional/function.h:20:
+In file included from /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/__memory/shared_ptr.h:22:
+/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/__memory/allocator.h:154:28: error: call to implicitly-deleted copy constructor of 'std::unique_ptr<Fahrzeug>'
+        ::new ((void*)__p) _Up(_VSTD::forward<_Args>(__args)...);
+                           ^   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/__memory/allocator_traits.h:290:13: note: in instantiation of function template specialization 'std::allocator<std::__list_node<std::unique_ptr<Fahrzeug>, void *>>::construct<std::unique_ptr<Fahrzeug>, const std::unique_ptr<Fahrzeug> &>' requested here
+        __a.construct(__p, _VSTD::forward<_Args>(__args)...);
+            ^
+/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/list:1617:26: note: in instantiation of function template specialization 'std::allocator_traits<std::allocator<std::__list_node<std::unique_ptr<Fahrzeug>, void *>>>::construct<std::unique_ptr<Fahrzeug>, const std::unique_ptr<Fahrzeug> &, void>' requested here
+    __node_alloc_traits::construct(__na, _VSTD::addressof(__hold->__value_), __x);
+                         ^
+/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/list:1286:9: note: in instantiation of member function 'std::list<std::unique_ptr<Fahrzeug>>::push_back' requested here
+        push_back(*__i);
+        ^
+../src/vertagt_liste.h:9:8: note: in instantiation of member function 'std::list<std::unique_ptr<Fahrzeug>>::list' requested here
+        class VListe
+              ^
+/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/__memory/unique_ptr.h:213:3: note: copy constructor is implicitly deleted because 'unique_ptr<Fahrzeug>' has a user-declared move constructor
+  unique_ptr(unique_ptr&& __u) _NOEXCEPT
+  ^
+In file included from ../src/Fahren.cpp:1:
+In file included from ../src/Fahren.h:4:
+In file included from ../src/Verhalten.h:1:
+In file included from ../src/Fahrzeug.h:2:
+In file included from /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/iostream:37:
+In file included from /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/ios:214:
+In file included from /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/__locale:15:
+In file included from /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/string:522:
+In file included from /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/algorithm:653:
+In file included from /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/functional:500:
+In file included from /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/__functional/function.h:20:
+In file included from /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/__memory/shared_ptr.h:22:
+/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/__memory/allocator.h:154:28: error: call to implicitly-deleted copy constructor of 'std::unique_ptr<vertagt::VAktion<std::unique_ptr<Fahrzeug>>>'
+        ::new ((void*)__p) _Up(_VSTD::forward<_Args>(__args)...);
+                           ^   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/__memory/allocator_traits.h:290:13: note: in instantiation of function template specialization 'std::allocator<std::__list_node<std::unique_ptr<vertagt::VAktion<std::unique_ptr<Fahrzeug>>>, void *>>::construct<std::unique_ptr<vertagt::VAktion<std::unique_ptr<Fahrzeug>>>, const std::unique_ptr<vertagt::VAktion<std::unique_ptr<Fahrzeug>>> &>' requested here
+        __a.construct(__p, _VSTD::forward<_Args>(__args)...);
+            ^
+/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/list:1617:26: note: in instantiation of function template specialization 'std::allocator_traits<std::allocator<std::__list_node<std::unique_ptr<vertagt::VAktion<std::unique_ptr<Fahrzeug>>>, void *>>>::construct<std::unique_ptr<vertagt::VAktion<std::unique_ptr<Fahrzeug>>>, const std::unique_ptr<vertagt::VAktion<std::unique_ptr<Fahrzeug>>> &, void>' requested here
+    __node_alloc_traits::construct(__na, _VSTD::addressof(__hold->__value_), __x);
+                         ^
+/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/list:1286:9: note: in instantiation of member function 'std::list<std::unique_ptr<vertagt::VAktion<std::unique_ptr<Fahrzeug>>>>::push_back' requested here
+        push_back(*__i);
+        ^
+../src/vertagt_liste.h:9:8: note: in instantiation of member function 'std::list<std::unique_ptr<vertagt::VAktion<std::unique_ptr<Fahrzeug>>>>::list' requested here
+        class VListe
+              ^
+/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/__memory/unique_ptr.h:213:3: note: copy constructor is implicitly deleted because 'unique_ptr<vertagt::VAktion<std::unique_ptr<Fahrzeug>>>' has a user-declared move constructor
+  unique_ptr(unique_ptr&& __u) _NOEXCEPT
+  ^
+3 errors generated.
+make: *** [src/Fahren.o] Error 1
+"make all" terminated with exit code 2. Build might be incomplete.
+22:36:59 **** Incremental Build of configuration Debug for project Aufgabenblock_2 ****
+make all 
+Building file: ../src/Fahren.cpp
+Invoking: GCC C++ Compiler
+g++ -std=c++17 -I/Users/yagi/boost -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"src/Fahren.d" -MT"src/Fahren.o" -o "src/Fahren.o" "../src/Fahren.cpp"
+../src/Fahren.cpp:17:5: error: indirection requires pointer operand ('int' invalid)
+        if(*this->getWeg()->getUeberholverbot()) {
+           ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+In file included from ../src/Fahren.cpp:1:
+In file included from ../src/Fahren.h:4:
+In file included from ../src/Verhalten.h:1:
+In file included from ../src/Fahrzeug.h:2:
+In file included from /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/iostream:37:
+In file included from /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/ios:214:
+In file included from /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/__locale:15:
+In file included from /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/string:522:
+In file included from /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/algorithm:653:
+In file included from /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/functional:500:
+In file included from /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/__functional/function.h:20:
+In file included from /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/__memory/shared_ptr.h:22:
+/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/__memory/allocator.h:154:28: error: call to implicitly-deleted copy constructor of 'std::unique_ptr<Fahrzeug>'
+        ::new ((void*)__p) _Up(_VSTD::forward<_Args>(__args)...);
+                           ^   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/__memory/allocator_traits.h:290:13: note: in instantiation of function template specialization 'std::allocator<std::__list_node<std::unique_ptr<Fahrzeug>, void *>>::construct<std::unique_ptr<Fahrzeug>, const std::unique_ptr<Fahrzeug> &>' requested here
+        __a.construct(__p, _VSTD::forward<_Args>(__args)...);
+            ^
+/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/list:1617:26: note: in instantiation of function template specialization 'std::allocator_traits<std::allocator<std::__list_node<std::unique_ptr<Fahrzeug>, void *>>>::construct<std::unique_ptr<Fahrzeug>, const std::unique_ptr<Fahrzeug> &, void>' requested here
+    __node_alloc_traits::construct(__na, _VSTD::addressof(__hold->__value_), __x);
+                         ^
+/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/list:1286:9: note: in instantiation of member function 'std::list<std::unique_ptr<Fahrzeug>>::push_back' requested here
+        push_back(*__i);
+        ^
+../src/vertagt_liste.h:9:8: note: in instantiation of member function 'std::list<std::unique_ptr<Fahrzeug>>::list' requested here
+        class VListe
+              ^
+/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/__memory/unique_ptr.h:213:3: note: copy constructor is implicitly deleted because 'unique_ptr<Fahrzeug>' has a user-declared move constructor
+  unique_ptr(unique_ptr&& __u) _NOEXCEPT
+  ^
+In file included from ../src/Fahren.cpp:1:
+In file included from ../src/Fahren.h:4:
+In file included from ../src/Verhalten.h:1:
+In file included from ../src/Fahrzeug.h:2:
+In file included from /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/iostream:37:
+In file included from /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/ios:214:
+In file included from /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/__locale:15:
+In file included from /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/string:522:
+In file included from /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/algorithm:653:
+In file included from /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/functional:500:
+In file included from /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/__functional/function.h:20:
+In file included from /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/__memory/shared_ptr.h:22:
+/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/__memory/allocator.h:154:28: error: call to implicitly-deleted copy constructor of 'std::unique_ptr<vertagt::VAktion<std::unique_ptr<Fahrzeug>>>'
+        ::new ((void*)__p) _Up(_VSTD::forward<_Args>(__args)...);
+                           ^   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/__memory/allocator_traits.h:290:13: note: in instantiation of function template specialization 'std::allocator<std::__list_node<std::unique_ptr<vertagt::VAktion<std::unique_ptr<Fahrzeug>>>, void *>>::construct<std::unique_ptr<vertagt::VAktion<std::unique_ptr<Fahrzeug>>>, const std::unique_ptr<vertagt::VAktion<std::unique_ptr<Fahrzeug>>> &>' requested here
+        __a.construct(__p, _VSTD::forward<_Args>(__args)...);
+            ^
+/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/list:1617:26: note: in instantiation of function template specialization 'std::allocator_traits<std::allocator<std::__list_node<std::unique_ptr<vertagt::VAktion<std::unique_ptr<Fahrzeug>>>, void *>>>::construct<std::unique_ptr<vertagt::VAktion<std::unique_ptr<Fahrzeug>>>, const std::unique_ptr<vertagt::VAktion<std::unique_ptr<Fahrzeug>>> &, void>' requested here
+    __node_alloc_traits::construct(__na, _VSTD::addressof(__hold->__value_), __x);
+                         ^
+/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/list:1286:9: note: in instantiation of member function 'std::list<std::unique_ptr<vertagt::VAktion<std::unique_ptr<Fahrzeug>>>>::push_back' requested here
+        push_back(*__i);
+        ^
+../src/vertagt_liste.h:9:8: note: in instantiation of member function 'std::list<std::unique_ptr<vertagt::VAktion<std::unique_ptr<Fahrzeug>>>>::list' requested here
+        class VListe
+              ^
+/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/__memory/unique_ptr.h:213:3: note: copy constructor is implicitly deleted because 'unique_ptr<vertagt::VAktion<std::unique_ptr<Fahrzeug>>>' has a user-declared move constructor
+  unique_ptr(unique_ptr&& __u) _NOEXCEPT
+  ^
+3 errors generated.
+make: *** [src/Fahren.o] Error 1
+"make all" terminated with exit code 2. Build might be incomplete.
+22:37:32 **** Incremental Build of configuration Debug for project Aufgabenblock_2 ****
+make all 
+Building file: ../src/Fahren.cpp
+Invoking: GCC C++ Compiler
+g++ -std=c++17 -I/Users/yagi/boost -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"src/Fahren.d" -MT"src/Fahren.o" -o "src/Fahren.o" "../src/Fahren.cpp"
+../src/Fahren.cpp:19:46: error: no viable conversion from 'vertagt::VListe<std::unique_ptr<Fahrzeug>> *' to 'vertagt::VListe<std::unique_ptr<Fahrzeug>>'
+                vertagt::VListe<std::unique_ptr<Fahrzeug>> fahrzeugeOnWeg = this->getWeg()->getFahrzeuge();
+                                                           ^                ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../src/vertagt_liste.h:9:8: note: candidate constructor (the implicit copy constructor) not viable: no known conversion from 'vertagt::VListe<std::unique_ptr<Fahrzeug>> *' to 'const vertagt::VListe<std::unique_ptr<Fahrzeug>> &' for 1st argument; dereference the argument with *
+        class VListe
+              ^
+1 error generated.
+make: *** [src/Fahren.o] Error 1
+"make all" terminated with exit code 2. Build might be incomplete.
+22:37:47 **** Incremental Build of configuration Debug for project Aufgabenblock_2 ****
+make all 
+Building file: ../src/Fahren.cpp
+Invoking: GCC C++ Compiler
+g++ -std=c++17 -I/Users/yagi/boost -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"src/Fahren.d" -MT"src/Fahren.o" -o "src/Fahren.o" "../src/Fahren.cpp"
+../src/Fahren.cpp:22:29: error: invalid range expression of type 'vertagt::VListe<std::unique_ptr<Fahrzeug>> *'; did you mean to dereference it with '*'?
+                for(auto& fahrzeugOnWeg : fahrzeugeOnWeg) {
+                                          ^
+                                          *
+1 error generated.
+make: *** [src/Fahren.o] Error 1
+"make all" terminated with exit code 2. Build might be incomplete.
+22:37:56 **** Incremental Build of configuration Debug for project Aufgabenblock_2 ****
+make all 
+Building file: ../src/Fahren.cpp
+Invoking: GCC C++ Compiler
+g++ -std=c++17 -I/Users/yagi/boost -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"src/Fahren.d" -MT"src/Fahren.o" -o "src/Fahren.o" "../src/Fahren.cpp"
+Finished building: ../src/Fahren.cpp
+ 
+Building file: ../src/Fahrrad.cpp
+Invoking: GCC C++ Compiler
+g++ -std=c++17 -I/Users/yagi/boost -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"src/Fahrrad.d" -MT"src/Fahrrad.o" -o "src/Fahrrad.o" "../src/Fahrrad.cpp"
+In file included from ../src/Fahrrad.cpp:4:
+../src/SimuClient.h:2:9: warning: unknown pragma ignored [-Wunknown-pragmas]
+#pragma warning (disable:4786)
+        ^
+1 warning generated.
+Finished building: ../src/Fahrrad.cpp
+ 
+Building file: ../src/Fahrzeug.cpp
+Invoking: GCC C++ Compiler
+g++ -std=c++17 -I/Users/yagi/boost -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"src/Fahrzeug.d" -MT"src/Fahrzeug.o" -o "src/Fahrzeug.o" "../src/Fahrzeug.cpp"
+../src/Fahrzeug.cpp:81:9: warning: unused variable 'dTeilstrecke' [-Wunused-variable]
+        double dTeilstrecke = p_pVerhalten->dStrecke(*this, dZeitraum);
+               ^
+1 warning generated.
+Finished building: ../src/Fahrzeug.cpp
+ 
+Building file: ../src/Kreuzung.cpp
+Invoking: GCC C++ Compiler
+g++ -std=c++17 -I/Users/yagi/boost -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"src/Kreuzung.d" -MT"src/Kreuzung.o" -o "src/Kreuzung.o" "../src/Kreuzung.cpp"
+Finished building: ../src/Kreuzung.cpp
+ 
+Building file: ../src/Losfahren.cpp
+Invoking: GCC C++ Compiler
+g++ -std=c++17 -I/Users/yagi/boost -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"src/Losfahren.d" -MT"src/Losfahren.o" -o "src/Losfahren.o" "../src/Losfahren.cpp"
+Finished building: ../src/Losfahren.cpp
+ 
+Building file: ../src/PKW.cpp
+Invoking: GCC C++ Compiler
+g++ -std=c++17 -I/Users/yagi/boost -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"src/PKW.d" -MT"src/PKW.o" -o "src/PKW.o" "../src/PKW.cpp"
+In file included from ../src/PKW.cpp:4:
+../src/SimuClient.h:2:9: warning: unknown pragma ignored [-Wunknown-pragmas]
+#pragma warning (disable:4786)
+        ^
+1 warning generated.
+Finished building: ../src/PKW.cpp
+ 
+Building file: ../src/Parken.cpp
+Invoking: GCC C++ Compiler
+g++ -std=c++17 -I/Users/yagi/boost -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"src/Parken.d" -MT"src/Parken.o" -o "src/Parken.o" "../src/Parken.cpp"
+Finished building: ../src/Parken.cpp
+ 
+Building file: ../src/SimuClient.cpp
+Invoking: GCC C++ Compiler
+g++ -std=c++17 -I/Users/yagi/boost -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"src/SimuClient.d" -MT"src/SimuClient.o" -o "src/SimuClient.o" "../src/SimuClient.cpp"
+In file included from ../src/SimuClient.cpp:1:
+../src/SimuClient.h:2:9: warning: unknown pragma ignored [-Wunknown-pragmas]
+#pragma warning (disable:4786)
+        ^
+In file included from ../src/SimuClient.cpp:2:
+In file included from ../src/SimuClientSocket.h:5:
+In file included from /Users/yagi/boost/boost/asio.hpp:21:
+In file included from /Users/yagi/boost/boost/asio/associated_executor.hpp:22:
+In file included from /Users/yagi/boost/boost/asio/execution/executor.hpp:20:
+In file included from /Users/yagi/boost/boost/asio/execution/execute.hpp:20:
+In file included from /Users/yagi/boost/boost/asio/execution/detail/as_invocable.hpp:20:
+In file included from /Users/yagi/boost/boost/asio/detail/memory.hpp:23:
+In file included from /Users/yagi/boost/boost/asio/detail/throw_exception.hpp:21:
+In file included from /Users/yagi/boost/boost/throw_exception.hpp:21:
+In file included from /Users/yagi/boost/boost/exception/exception.hpp:9:
+/Users/yagi/boost/boost/assert/source_location.hpp:91:14: warning: 'sprintf' is deprecated: This function is provided for compatibility reasons only.  Due to security concerns inherent in the design of sprintf(3), it is highly recommended that you use snprintf(3) instead. [-Wdeprecated-declarations]
+        std::sprintf( buffer, ":%lu", ln );
+             ^
+/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/stdio.h:188:1: note: 'sprintf' has been explicitly marked deprecated here
+__deprecated_msg("This function is provided for compatibility reasons only.  Due to security concerns inherent in the design of sprintf(3), it is highly recommended that you use snprintf(3) instead.")
+^
+/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/sys/cdefs.h:215:48: note: expanded from macro '__deprecated_msg'
+        #define __deprecated_msg(_msg) __attribute__((__deprecated__(_msg)))
+                                                      ^
+In file included from ../src/SimuClient.cpp:2:
+In file included from ../src/SimuClientSocket.h:5:
+In file included from /Users/yagi/boost/boost/asio.hpp:21:
+In file included from /Users/yagi/boost/boost/asio/associated_executor.hpp:22:
+In file included from /Users/yagi/boost/boost/asio/execution/executor.hpp:20:
+In file included from /Users/yagi/boost/boost/asio/execution/execute.hpp:20:
+In file included from /Users/yagi/boost/boost/asio/execution/detail/as_invocable.hpp:20:
+In file included from /Users/yagi/boost/boost/asio/detail/memory.hpp:23:
+In file included from /Users/yagi/boost/boost/asio/detail/throw_exception.hpp:21:
+In file included from /Users/yagi/boost/boost/throw_exception.hpp:21:
+In file included from /Users/yagi/boost/boost/exception/exception.hpp:9:
+/Users/yagi/boost/boost/assert/source_location.hpp:98:18: warning: 'sprintf' is deprecated: This function is provided for compatibility reasons only.  Due to security concerns inherent in the design of sprintf(3), it is highly recommended that you use snprintf(3) instead. [-Wdeprecated-declarations]
+            std::sprintf( buffer, ":%lu", co );
+                 ^
+/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/stdio.h:188:1: note: 'sprintf' has been explicitly marked deprecated here
+__deprecated_msg("This function is provided for compatibility reasons only.  Due to security concerns inherent in the design of sprintf(3), it is highly recommended that you use snprintf(3) instead.")
+^
+/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/sys/cdefs.h:215:48: note: expanded from macro '__deprecated_msg'
+        #define __deprecated_msg(_msg) __attribute__((__deprecated__(_msg)))
+                                                      ^
+In file included from ../src/SimuClient.cpp:2:
+In file included from ../src/SimuClientSocket.h:5:
+In file included from /Users/yagi/boost/boost/asio.hpp:26:
+In file included from /Users/yagi/boost/boost/asio/basic_datagram_socket.hpp:20:
+In file included from /Users/yagi/boost/boost/asio/basic_socket.hpp:38:
+In file included from /Users/yagi/boost/boost/asio/detail/reactive_socket_service.hpp:31:
+In file included from /Users/yagi/boost/boost/asio/detail/reactive_socket_accept_op.hpp:26:
+In file included from /Users/yagi/boost/boost/asio/detail/socket_holder.hpp:20:
+In file included from /Users/yagi/boost/boost/asio/detail/socket_ops.hpp:382:
+/Users/yagi/boost/boost/asio/detail/impl/socket_ops.ipp:2523:7: warning: 'sprintf' is deprecated: This function is provided for compatibility reasons only.  Due to security concerns inherent in the design of sprintf(3), it is highly recommended that you use snprintf(3) instead. [-Wdeprecated-declarations]
+      sprintf(if_name + 1, "%lu", scope_id);
+      ^
+/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/stdio.h:188:1: note: 'sprintf' has been explicitly marked deprecated here
+__deprecated_msg("This function is provided for compatibility reasons only.  Due to security concerns inherent in the design of sprintf(3), it is highly recommended that you use snprintf(3) instead.")
+^
+/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/sys/cdefs.h:215:48: note: expanded from macro '__deprecated_msg'
+        #define __deprecated_msg(_msg) __attribute__((__deprecated__(_msg)))
+                                                      ^
+In file included from ../src/SimuClient.cpp:2:
+In file included from ../src/SimuClientSocket.h:5:
+In file included from /Users/yagi/boost/boost/asio.hpp:123:
+In file included from /Users/yagi/boost/boost/asio/ip/network_v4.hpp:260:
+/Users/yagi/boost/boost/asio/ip/impl/network_v4.ipp:136:3: warning: 'sprintf' is deprecated: This function is provided for compatibility reasons only.  Due to security concerns inherent in the design of sprintf(3), it is highly recommended that you use snprintf(3) instead. [-Wdeprecated-declarations]
+  sprintf(prefix_len, "/%u", prefix_length_);
+  ^
+/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/stdio.h:188:1: note: 'sprintf' has been explicitly marked deprecated here
+__deprecated_msg("This function is provided for compatibility reasons only.  Due to security concerns inherent in the design of sprintf(3), it is highly recommended that you use snprintf(3) instead.")
+^
+/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/sys/cdefs.h:215:48: note: expanded from macro '__deprecated_msg'
+        #define __deprecated_msg(_msg) __attribute__((__deprecated__(_msg)))
+                                                      ^
+In file included from ../src/SimuClient.cpp:2:
+In file included from ../src/SimuClientSocket.h:5:
+In file included from /Users/yagi/boost/boost/asio.hpp:124:
+In file included from /Users/yagi/boost/boost/asio/ip/network_v6.hpp:234:
+/Users/yagi/boost/boost/asio/ip/impl/network_v6.ipp:105:3: warning: 'sprintf' is deprecated: This function is provided for compatibility reasons only.  Due to security concerns inherent in the design of sprintf(3), it is highly recommended that you use snprintf(3) instead. [-Wdeprecated-declarations]
+  sprintf(prefix_len, "/%u", prefix_length_);
+  ^
+/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/stdio.h:188:1: note: 'sprintf' has been explicitly marked deprecated here
+__deprecated_msg("This function is provided for compatibility reasons only.  Due to security concerns inherent in the design of sprintf(3), it is highly recommended that you use snprintf(3) instead.")
+^
+/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/sys/cdefs.h:215:48: note: expanded from macro '__deprecated_msg'
+        #define __deprecated_msg(_msg) __attribute__((__deprecated__(_msg)))
+                                                      ^
+6 warnings generated.
+Finished building: ../src/SimuClient.cpp
+ 
+Building file: ../src/SimuClientSocket.cpp
+Invoking: GCC C++ Compiler
+g++ -std=c++17 -I/Users/yagi/boost -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"src/SimuClientSocket.d" -MT"src/SimuClientSocket.o" -o "src/SimuClientSocket.o" "../src/SimuClientSocket.cpp"
+In file included from ../src/SimuClientSocket.cpp:1:
+In file included from ../src/SimuClientSocket.h:5:
+In file included from /Users/yagi/boost/boost/asio.hpp:21:
+In file included from /Users/yagi/boost/boost/asio/associated_executor.hpp:22:
+In file included from /Users/yagi/boost/boost/asio/execution/executor.hpp:20:
+In file included from /Users/yagi/boost/boost/asio/execution/execute.hpp:20:
+In file included from /Users/yagi/boost/boost/asio/execution/detail/as_invocable.hpp:20:
+In file included from /Users/yagi/boost/boost/asio/detail/memory.hpp:23:
+In file included from /Users/yagi/boost/boost/asio/detail/throw_exception.hpp:21:
+In file included from /Users/yagi/boost/boost/throw_exception.hpp:21:
+In file included from /Users/yagi/boost/boost/exception/exception.hpp:9:
+/Users/yagi/boost/boost/assert/source_location.hpp:91:14: warning: 'sprintf' is deprecated: This function is provided for compatibility reasons only.  Due to security concerns inherent in the design of sprintf(3), it is highly recommended that you use snprintf(3) instead. [-Wdeprecated-declarations]
+        std::sprintf( buffer, ":%lu", ln );
+             ^
+/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/stdio.h:188:1: note: 'sprintf' has been explicitly marked deprecated here
+__deprecated_msg("This function is provided for compatibility reasons only.  Due to security concerns inherent in the design of sprintf(3), it is highly recommended that you use snprintf(3) instead.")
+^
+/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/sys/cdefs.h:215:48: note: expanded from macro '__deprecated_msg'
+        #define __deprecated_msg(_msg) __attribute__((__deprecated__(_msg)))
+                                                      ^
+In file included from ../src/SimuClientSocket.cpp:1:
+In file included from ../src/SimuClientSocket.h:5:
+In file included from /Users/yagi/boost/boost/asio.hpp:21:
+In file included from /Users/yagi/boost/boost/asio/associated_executor.hpp:22:
+In file included from /Users/yagi/boost/boost/asio/execution/executor.hpp:20:
+In file included from /Users/yagi/boost/boost/asio/execution/execute.hpp:20:
+In file included from /Users/yagi/boost/boost/asio/execution/detail/as_invocable.hpp:20:
+In file included from /Users/yagi/boost/boost/asio/detail/memory.hpp:23:
+In file included from /Users/yagi/boost/boost/asio/detail/throw_exception.hpp:21:
+In file included from /Users/yagi/boost/boost/throw_exception.hpp:21:
+In file included from /Users/yagi/boost/boost/exception/exception.hpp:9:
+/Users/yagi/boost/boost/assert/source_location.hpp:98:18: warning: 'sprintf' is deprecated: This function is provided for compatibility reasons only.  Due to security concerns inherent in the design of sprintf(3), it is highly recommended that you use snprintf(3) instead. [-Wdeprecated-declarations]
+            std::sprintf( buffer, ":%lu", co );
+                 ^
+/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/stdio.h:188:1: note: 'sprintf' has been explicitly marked deprecated here
+__deprecated_msg("This function is provided for compatibility reasons only.  Due to security concerns inherent in the design of sprintf(3), it is highly recommended that you use snprintf(3) instead.")
+^
+/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/sys/cdefs.h:215:48: note: expanded from macro '__deprecated_msg'
+        #define __deprecated_msg(_msg) __attribute__((__deprecated__(_msg)))
+                                                      ^
+In file included from ../src/SimuClientSocket.cpp:1:
+In file included from ../src/SimuClientSocket.h:5:
+In file included from /Users/yagi/boost/boost/asio.hpp:26:
+In file included from /Users/yagi/boost/boost/asio/basic_datagram_socket.hpp:20:
+In file included from /Users/yagi/boost/boost/asio/basic_socket.hpp:38:
+In file included from /Users/yagi/boost/boost/asio/detail/reactive_socket_service.hpp:31:
+In file included from /Users/yagi/boost/boost/asio/detail/reactive_socket_accept_op.hpp:26:
+In file included from /Users/yagi/boost/boost/asio/detail/socket_holder.hpp:20:
+In file included from /Users/yagi/boost/boost/asio/detail/socket_ops.hpp:382:
+/Users/yagi/boost/boost/asio/detail/impl/socket_ops.ipp:2523:7: warning: 'sprintf' is deprecated: This function is provided for compatibility reasons only.  Due to security concerns inherent in the design of sprintf(3), it is highly recommended that you use snprintf(3) instead. [-Wdeprecated-declarations]
+      sprintf(if_name + 1, "%lu", scope_id);
+      ^
+/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/stdio.h:188:1: note: 'sprintf' has been explicitly marked deprecated here
+__deprecated_msg("This function is provided for compatibility reasons only.  Due to security concerns inherent in the design of sprintf(3), it is highly recommended that you use snprintf(3) instead.")
+^
+/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/sys/cdefs.h:215:48: note: expanded from macro '__deprecated_msg'
+        #define __deprecated_msg(_msg) __attribute__((__deprecated__(_msg)))
+                                                      ^
+In file included from ../src/SimuClientSocket.cpp:1:
+In file included from ../src/SimuClientSocket.h:5:
+In file included from /Users/yagi/boost/boost/asio.hpp:123:
+In file included from /Users/yagi/boost/boost/asio/ip/network_v4.hpp:260:
+/Users/yagi/boost/boost/asio/ip/impl/network_v4.ipp:136:3: warning: 'sprintf' is deprecated: This function is provided for compatibility reasons only.  Due to security concerns inherent in the design of sprintf(3), it is highly recommended that you use snprintf(3) instead. [-Wdeprecated-declarations]
+  sprintf(prefix_len, "/%u", prefix_length_);
+  ^
+/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/stdio.h:188:1: note: 'sprintf' has been explicitly marked deprecated here
+__deprecated_msg("This function is provided for compatibility reasons only.  Due to security concerns inherent in the design of sprintf(3), it is highly recommended that you use snprintf(3) instead.")
+^
+/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/sys/cdefs.h:215:48: note: expanded from macro '__deprecated_msg'
+        #define __deprecated_msg(_msg) __attribute__((__deprecated__(_msg)))
+                                                      ^
+In file included from ../src/SimuClientSocket.cpp:1:
+In file included from ../src/SimuClientSocket.h:5:
+In file included from /Users/yagi/boost/boost/asio.hpp:124:
+In file included from /Users/yagi/boost/boost/asio/ip/network_v6.hpp:234:
+/Users/yagi/boost/boost/asio/ip/impl/network_v6.ipp:105:3: warning: 'sprintf' is deprecated: This function is provided for compatibility reasons only.  Due to security concerns inherent in the design of sprintf(3), it is highly recommended that you use snprintf(3) instead. [-Wdeprecated-declarations]
+  sprintf(prefix_len, "/%u", prefix_length_);
+  ^
+/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/stdio.h:188:1: note: 'sprintf' has been explicitly marked deprecated here
+__deprecated_msg("This function is provided for compatibility reasons only.  Due to security concerns inherent in the design of sprintf(3), it is highly recommended that you use snprintf(3) instead.")
+^
+/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/sys/cdefs.h:215:48: note: expanded from macro '__deprecated_msg'
+        #define __deprecated_msg(_msg) __attribute__((__deprecated__(_msg)))
+                                                      ^
+5 warnings generated.
+Finished building: ../src/SimuClientSocket.cpp
+ 
+Building file: ../src/Simulationsobjekt.cpp
+Invoking: GCC C++ Compiler
+g++ -std=c++17 -I/Users/yagi/boost -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"src/Simulationsobjekt.d" -MT"src/Simulationsobjekt.o" -o "src/Simulationsobjekt.o" "../src/Simulationsobjekt.cpp"
+Finished building: ../src/Simulationsobjekt.cpp
+ 
+Building file: ../src/Streckenende.cpp
+Invoking: GCC C++ Compiler
+g++ -std=c++17 -I/Users/yagi/boost -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"src/Streckenende.d" -MT"src/Streckenende.o" -o "src/Streckenende.o" "../src/Streckenende.cpp"
+Finished building: ../src/Streckenende.cpp
+ 
+Building file: ../src/Verhalten.cpp
+Invoking: GCC C++ Compiler
+g++ -std=c++17 -I/Users/yagi/boost -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"src/Verhalten.d" -MT"src/Verhalten.o" -o "src/Verhalten.o" "../src/Verhalten.cpp"
+Finished building: ../src/Verhalten.cpp
+ 
+Building file: ../src/Weg.cpp
+Invoking: GCC C++ Compiler
+g++ -std=c++17 -I/Users/yagi/boost -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"src/Weg.d" -MT"src/Weg.o" -o "src/Weg.o" "../src/Weg.cpp"
+../src/Weg.cpp:31:2: warning: field 'p_pKreuzung' will be initialized after field 'p_eTempolimit' [-Wreorder-ctor]
+        p_pKreuzung(pKreuzung),
+        ^~~~~~~~~~~~~~~~~~~~~~
+        p_eTempolimit(eTempolimit)
+1 warning generated.
+Finished building: ../src/Weg.cpp
+ 
+Building file: ../src/main.cpp
+Invoking: GCC C++ Compiler
+g++ -std=c++17 -I/Users/yagi/boost -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"src/main.d" -MT"src/main.o" -o "src/main.o" "../src/main.cpp"
+In file included from ../src/main.cpp:13:
+../src/SimuClient.h:2:9: warning: unknown pragma ignored [-Wunknown-pragmas]
+#pragma warning (disable:4786)
+        ^
+../src/main.cpp:578:9: warning: unused variable 'dTankzeit' [-Wunused-variable]
+        double dTankzeit = 3.0;
+               ^
+2 warnings generated.
+Finished building: ../src/main.cpp
+ 
+Building target: Aufgabenblock_2
+Invoking: MacOS X C++ Linker
+g++ -L/Users/yagi/boost -o "Aufgabenblock_2"  ./src/Fahrausnahme.o ./src/Fahren.o ./src/Fahrrad.o ./src/Fahrzeug.o ./src/Kreuzung.o ./src/Losfahren.o ./src/PKW.o ./src/Parken.o ./src/SimuClient.o ./src/SimuClientSocket.o ./src/Simulationsobjekt.o ./src/Streckenende.o ./src/Verhalten.o ./src/Weg.o ./src/main.o   
+Finished building target: Aufgabenblock_2
+ 
+22:42:19 **** Incremental Build of configuration Debug for project Aufgabenblock_2 ****
+make all 
+Building file: ../src/Fahren.cpp
+Invoking: GCC C++ Compiler
+g++ -std=c++17 -I/Users/yagi/boost -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"src/Fahren.d" -MT"src/Fahren.o" -o "src/Fahren.o" "../src/Fahren.cpp"
+Finished building: ../src/Fahren.cpp
+ 
+Building file: ../src/main.cpp
+Invoking: GCC C++ Compiler
+g++ -std=c++17 -I/Users/yagi/boost -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"src/main.d" -MT"src/main.o" -o "src/main.o" "../src/main.cpp"
+In file included from ../src/main.cpp:13:
+../src/SimuClient.h:2:9: warning: unknown pragma ignored [-Wunknown-pragmas]
+#pragma warning (disable:4786)
+        ^
+../src/main.cpp:578:9: warning: unused variable 'dTankzeit' [-Wunused-variable]
+        double dTankzeit = 3.0;
+               ^
+2 warnings generated.
+Finished building: ../src/main.cpp
+ 
+Building target: Aufgabenblock_2
+Invoking: MacOS X C++ Linker
+g++ -L/Users/yagi/boost -o "Aufgabenblock_2"  ./src/Fahrausnahme.o ./src/Fahren.o ./src/Fahrrad.o ./src/Fahrzeug.o ./src/Kreuzung.o ./src/Losfahren.o ./src/PKW.o ./src/Parken.o ./src/SimuClient.o ./src/SimuClientSocket.o ./src/Simulationsobjekt.o ./src/Streckenende.o ./src/Verhalten.o ./src/Weg.o ./src/main.o   
+Finished building target: Aufgabenblock_2
+ 
+22:43:49 **** Incremental Build of configuration Debug for project Aufgabenblock_2 ****
+make all 
+Building file: ../src/main.cpp
+Invoking: GCC C++ Compiler
+g++ -std=c++17 -I/Users/yagi/boost -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"src/main.d" -MT"src/main.o" -o "src/main.o" "../src/main.cpp"
+In file included from ../src/main.cpp:13:
+../src/SimuClient.h:2:9: warning: unknown pragma ignored [-Wunknown-pragmas]
+#pragma warning (disable:4786)
+        ^
+../src/main.cpp:578:9: warning: unused variable 'dTankzeit' [-Wunused-variable]
+        double dTankzeit = 3.0;
+               ^
+2 warnings generated.
+Finished building: ../src/main.cpp
+ 
+Building target: Aufgabenblock_2
+Invoking: MacOS X C++ Linker
+g++ -L/Users/yagi/boost -o "Aufgabenblock_2"  ./src/Fahrausnahme.o ./src/Fahren.o ./src/Fahrrad.o ./src/Fahrzeug.o ./src/Kreuzung.o ./src/Losfahren.o ./src/PKW.o ./src/Parken.o ./src/SimuClient.o ./src/SimuClientSocket.o ./src/Simulationsobjekt.o ./src/Streckenende.o ./src/Verhalten.o ./src/Weg.o ./src/main.o   
+Finished building target: Aufgabenblock_2
+ 
+22:45:49 **** Incremental Build of configuration Debug for project Aufgabenblock_2 ****
+make all 
+Building file: ../src/main.cpp
+Invoking: GCC C++ Compiler
+g++ -std=c++17 -I/Users/yagi/boost -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"src/main.d" -MT"src/main.o" -o "src/main.o" "../src/main.cpp"
+In file included from ../src/main.cpp:13:
+../src/SimuClient.h:2:9: warning: unknown pragma ignored [-Wunknown-pragmas]
+#pragma warning (disable:4786)
+        ^
+../src/main.cpp:577:9: warning: unused variable 'dTankzeit' [-Wunused-variable]
+        double dTankzeit = 3.0;
+               ^
+2 warnings generated.
+Finished building: ../src/main.cpp
+ 
+Building target: Aufgabenblock_2
+Invoking: MacOS X C++ Linker
+g++ -L/Users/yagi/boost -o "Aufgabenblock_2"  ./src/Fahrausnahme.o ./src/Fahren.o ./src/Fahrrad.o ./src/Fahrzeug.o ./src/Kreuzung.o ./src/Losfahren.o ./src/PKW.o ./src/Parken.o ./src/SimuClient.o ./src/SimuClientSocket.o ./src/Simulationsobjekt.o ./src/Streckenende.o ./src/Verhalten.o ./src/Weg.o ./src/main.o   
+Finished building target: Aufgabenblock_2
+ 
+22:46:31 **** Incremental Build of configuration Debug for project Aufgabenblock_2 ****
+make all 
+Building file: ../src/main.cpp
+Invoking: GCC C++ Compiler
+g++ -std=c++17 -I/Users/yagi/boost -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"src/main.d" -MT"src/main.o" -o "src/main.o" "../src/main.cpp"
+In file included from ../src/main.cpp:13:
+../src/SimuClient.h:2:9: warning: unknown pragma ignored [-Wunknown-pragmas]
+#pragma warning (disable:4786)
+        ^
+../src/main.cpp:577:9: warning: unused variable 'dTankzeit' [-Wunused-variable]
+        double dTankzeit = 3.0;
+               ^
+2 warnings generated.
+Finished building: ../src/main.cpp
+ 
+Building target: Aufgabenblock_2
+Invoking: MacOS X C++ Linker
+g++ -L/Users/yagi/boost -o "Aufgabenblock_2"  ./src/Fahrausnahme.o ./src/Fahren.o ./src/Fahrrad.o ./src/Fahrzeug.o ./src/Kreuzung.o ./src/Losfahren.o ./src/PKW.o ./src/Parken.o ./src/SimuClient.o ./src/SimuClientSocket.o ./src/Simulationsobjekt.o ./src/Streckenende.o ./src/Verhalten.o ./src/Weg.o ./src/main.o   
+Finished building target: Aufgabenblock_2
+ 
+22:47:08 **** Incremental Build of configuration Debug for project Aufgabenblock_2 ****
+make all 
+Building file: ../src/Fahren.cpp
+Invoking: GCC C++ Compiler
+g++ -std=c++17 -I/Users/yagi/boost -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"src/Fahren.d" -MT"src/Fahren.o" -o "src/Fahren.o" "../src/Fahren.cpp"
+Finished building: ../src/Fahren.cpp
+ 
+Building file: ../src/main.cpp
+Invoking: GCC C++ Compiler
+g++ -std=c++17 -I/Users/yagi/boost -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"src/main.d" -MT"src/main.o" -o "src/main.o" "../src/main.cpp"
+In file included from ../src/main.cpp:13:
+../src/SimuClient.h:2:9: warning: unknown pragma ignored [-Wunknown-pragmas]
+#pragma warning (disable:4786)
+        ^
+../src/main.cpp:577:9: warning: unused variable 'dTankzeit' [-Wunused-variable]
+        double dTankzeit = 3.0;
+               ^
+2 warnings generated.
+Finished building: ../src/main.cpp
+ 
+Building target: Aufgabenblock_2
+Invoking: MacOS X C++ Linker
+g++ -L/Users/yagi/boost -o "Aufgabenblock_2"  ./src/Fahrausnahme.o ./src/Fahren.o ./src/Fahrrad.o ./src/Fahrzeug.o ./src/Kreuzung.o ./src/Losfahren.o ./src/PKW.o ./src/Parken.o ./src/SimuClient.o ./src/SimuClientSocket.o ./src/Simulationsobjekt.o ./src/Streckenende.o ./src/Verhalten.o ./src/Weg.o ./src/main.o   
+Finished building target: Aufgabenblock_2
+ 
+22:48:39 **** Incremental Build of configuration Debug for project Aufgabenblock_2 ****
+make all 
+Building file: ../src/Fahren.cpp
+Invoking: GCC C++ Compiler
+g++ -std=c++17 -I/Users/yagi/boost -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"src/Fahren.d" -MT"src/Fahren.o" -o "src/Fahren.o" "../src/Fahren.cpp"
+Finished building: ../src/Fahren.cpp
+ 
+Building target: Aufgabenblock_2
+Invoking: MacOS X C++ Linker
+g++ -L/Users/yagi/boost -o "Aufgabenblock_2"  ./src/Fahrausnahme.o ./src/Fahren.o ./src/Fahrrad.o ./src/Fahrzeug.o ./src/Kreuzung.o ./src/Losfahren.o ./src/PKW.o ./src/Parken.o ./src/SimuClient.o ./src/SimuClientSocket.o ./src/Simulationsobjekt.o ./src/Streckenende.o ./src/Verhalten.o ./src/Weg.o ./src/main.o   
+Finished building target: Aufgabenblock_2
+ 
+22:54:51 **** Incremental Build of configuration Debug for project Aufgabenblock_2 ****
+make all 
+Building file: ../src/Fahren.cpp
+Invoking: GCC C++ Compiler
+g++ -std=c++17 -I/Users/yagi/boost -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"src/Fahren.d" -MT"src/Fahren.o" -o "src/Fahren.o" "../src/Fahren.cpp"
+../src/Fahren.cpp:25:55: error: invalid operands to binary expression ('Fahrzeug' and 'double')
+                        double fahrzeugOnWegTeilstrecke = (*fahrzeugOnWeg) * dZeitIntervall;
+                                                          ~~~~~~~~~~~~~~~~ ^ ~~~~~~~~~~~~~~
+1 error generated.
+make: *** [src/Fahren.o] Error 1
+"make all" terminated with exit code 2. Build might be incomplete.
+22:55:04 **** Incremental Build of configuration Debug for project Aufgabenblock_2 ****
+make all 
+Building file: ../src/Fahren.cpp
+Invoking: GCC C++ Compiler
+g++ -std=c++17 -I/Users/yagi/boost -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"src/Fahren.d" -MT"src/Fahren.o" -o "src/Fahren.o" "../src/Fahren.cpp"
+Finished building: ../src/Fahren.cpp
+ 
+Building target: Aufgabenblock_2
+Invoking: MacOS X C++ Linker
+g++ -L/Users/yagi/boost -o "Aufgabenblock_2"  ./src/Fahrausnahme.o ./src/Fahren.o ./src/Fahrrad.o ./src/Fahrzeug.o ./src/Kreuzung.o ./src/Losfahren.o ./src/PKW.o ./src/Parken.o ./src/SimuClient.o ./src/SimuClientSocket.o ./src/Simulationsobjekt.o ./src/Streckenende.o ./src/Verhalten.o ./src/Weg.o ./src/main.o   
+Finished building target: Aufgabenblock_2
+ 
+22:57:14 **** Incremental Build of configuration Debug for project Aufgabenblock_2 ****
+make all 
+Building file: ../src/Fahren.cpp
+Invoking: GCC C++ Compiler
+g++ -std=c++17 -I/Users/yagi/boost -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"src/Fahren.d" -MT"src/Fahren.o" -o "src/Fahren.o" "../src/Fahren.cpp"
+Finished building: ../src/Fahren.cpp
+ 
+Building target: Aufgabenblock_2
+Invoking: MacOS X C++ Linker
+g++ -L/Users/yagi/boost -o "Aufgabenblock_2"  ./src/Fahrausnahme.o ./src/Fahren.o ./src/Fahrrad.o ./src/Fahrzeug.o ./src/Kreuzung.o ./src/Losfahren.o ./src/PKW.o ./src/Parken.o ./src/SimuClient.o ./src/SimuClientSocket.o ./src/Simulationsobjekt.o ./src/Streckenende.o ./src/Verhalten.o ./src/Weg.o ./src/main.o   
+Finished building target: Aufgabenblock_2
+ 
+22:58:18 **** Incremental Build of configuration Debug for project Aufgabenblock_2 ****
+make all 
+make: Nothing to be done for `all'.
+23:00:32 **** Incremental Build of configuration Debug for project Aufgabenblock_2 ****
+make all 
+Building file: ../src/Fahren.cpp
+Invoking: GCC C++ Compiler
+g++ -std=c++17 -I/Users/yagi/boost -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"src/Fahren.d" -MT"src/Fahren.o" -o "src/Fahren.o" "../src/Fahren.cpp"
+../src/Fahren.cpp:25:24: error: invalid operands to binary expression ('Fahrzeug' and 'Fahrzeug *')
+                        if((*fahrzeugOnWeg) == &aFahrzeug) {
+                           ~~~~~~~~~~~~~~~~ ^  ~~~~~~~~~~
+../src/Simulationsobjekt.h:44:7: note: candidate function not viable: no known conversion from 'Fahrzeug *' to 'const Simulationsobjekt' for 1st argument; remove &
+        bool operator==(const Simulationsobjekt& simulationsObjekt);
+             ^
+1 error generated.
+make: *** [src/Fahren.o] Error 1
+"make all" terminated with exit code 2. Build might be incomplete.
+23:00:47 **** Incremental Build of configuration Debug for project Aufgabenblock_2 ****
+make all 
+Building file: ../src/Fahren.cpp
+Invoking: GCC C++ Compiler
+g++ -std=c++17 -I/Users/yagi/boost -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"src/Fahren.d" -MT"src/Fahren.o" -o "src/Fahren.o" "../src/Fahren.cpp"
+Finished building: ../src/Fahren.cpp
+ 
+Building target: Aufgabenblock_2
+Invoking: MacOS X C++ Linker
+g++ -L/Users/yagi/boost -o "Aufgabenblock_2"  ./src/Fahrausnahme.o ./src/Fahren.o ./src/Fahrrad.o ./src/Fahrzeug.o ./src/Kreuzung.o ./src/Losfahren.o ./src/PKW.o ./src/Parken.o ./src/SimuClient.o ./src/SimuClientSocket.o ./src/Simulationsobjekt.o ./src/Streckenende.o ./src/Verhalten.o ./src/Weg.o ./src/main.o   
+Finished building target: Aufgabenblock_2
+ 
+23:01:05 **** Incremental Build of configuration Debug for project Aufgabenblock_2 ****
+make all 
+Building file: ../src/Fahren.cpp
+Invoking: GCC C++ Compiler
+g++ -std=c++17 -I/Users/yagi/boost -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"src/Fahren.d" -MT"src/Fahren.o" -o "src/Fahren.o" "../src/Fahren.cpp"
+../src/Fahren.cpp:25:24: error: invalid operands to binary expression ('Fahrzeug' and 'Fahrzeug')
+                        if((*fahrzeugOnWeg) != aFahrzeug) {
+                           ~~~~~~~~~~~~~~~~ ^  ~~~~~~~~~
+1 error generated.
+make: *** [src/Fahren.o] Error 1
+"make all" terminated with exit code 2. Build might be incomplete.
+23:01:31 **** Incremental Build of configuration Debug for project Aufgabenblock_2 ****
+make all 
+Building file: ../src/Fahren.cpp
+Invoking: GCC C++ Compiler
+g++ -std=c++17 -I/Users/yagi/boost -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"src/Fahren.d" -MT"src/Fahren.o" -o "src/Fahren.o" "../src/Fahren.cpp"
+Finished building: ../src/Fahren.cpp
+ 
+Building target: Aufgabenblock_2
+Invoking: MacOS X C++ Linker
+g++ -L/Users/yagi/boost -o "Aufgabenblock_2"  ./src/Fahrausnahme.o ./src/Fahren.o ./src/Fahrrad.o ./src/Fahrzeug.o ./src/Kreuzung.o ./src/Losfahren.o ./src/PKW.o ./src/Parken.o ./src/SimuClient.o ./src/SimuClientSocket.o ./src/Simulationsobjekt.o ./src/Streckenende.o ./src/Verhalten.o ./src/Weg.o ./src/main.o   
+Finished building target: Aufgabenblock_2
+ 
+23:05:23 **** Incremental Build of configuration Debug for project Aufgabenblock_2 ****
+make all 
+Building file: ../src/Fahren.cpp
+Invoking: GCC C++ Compiler
+g++ -std=c++17 -I/Users/yagi/boost -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"src/Fahren.d" -MT"src/Fahren.o" -o "src/Fahren.o" "../src/Fahren.cpp"
+Finished building: ../src/Fahren.cpp
+ 
+Building target: Aufgabenblock_2
+Invoking: MacOS X C++ Linker
+g++ -L/Users/yagi/boost -o "Aufgabenblock_2"  ./src/Fahrausnahme.o ./src/Fahren.o ./src/Fahrrad.o ./src/Fahrzeug.o ./src/Kreuzung.o ./src/Losfahren.o ./src/PKW.o ./src/Parken.o ./src/SimuClient.o ./src/SimuClientSocket.o ./src/Simulationsobjekt.o ./src/Streckenende.o ./src/Verhalten.o ./src/Weg.o ./src/main.o   
+Finished building target: Aufgabenblock_2
+ 
+23:06:43 **** Incremental Build of configuration Debug for project Aufgabenblock_2 ****
+make all 
+Building file: ../src/main.cpp
+Invoking: GCC C++ Compiler
+g++ -std=c++17 -I/Users/yagi/boost -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"src/main.d" -MT"src/main.o" -o "src/main.o" "../src/main.cpp"
+In file included from ../src/main.cpp:13:
+../src/SimuClient.h:2:9: warning: unknown pragma ignored [-Wunknown-pragmas]
+#pragma warning (disable:4786)
+        ^
+../src/main.cpp:577:9: warning: unused variable 'dTankzeit' [-Wunused-variable]
+        double dTankzeit = 3.0;
+               ^
+2 warnings generated.
+Finished building: ../src/main.cpp
+ 
+Building target: Aufgabenblock_2
+Invoking: MacOS X C++ Linker
+g++ -L/Users/yagi/boost -o "Aufgabenblock_2"  ./src/Fahrausnahme.o ./src/Fahren.o ./src/Fahrrad.o ./src/Fahrzeug.o ./src/Kreuzung.o ./src/Losfahren.o ./src/PKW.o ./src/Parken.o ./src/SimuClient.o ./src/SimuClientSocket.o ./src/Simulationsobjekt.o ./src/Streckenende.o ./src/Verhalten.o ./src/Weg.o ./src/main.o   
+Finished building target: Aufgabenblock_2
+ 
+23:08:10 **** Incremental Build of configuration Debug for project Aufgabenblock_2 ****
+make all 
+Building file: ../src/Fahren.cpp
+Invoking: GCC C++ Compiler
+g++ -std=c++17 -I/Users/yagi/boost -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"src/Fahren.d" -MT"src/Fahren.o" -o "src/Fahren.o" "../src/Fahren.cpp"
+Finished building: ../src/Fahren.cpp
+ 
+Building file: ../src/main.cpp
+Invoking: GCC C++ Compiler
+g++ -std=c++17 -I/Users/yagi/boost -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"src/main.d" -MT"src/main.o" -o "src/main.o" "../src/main.cpp"
+In file included from ../src/main.cpp:13:
+../src/SimuClient.h:2:9: warning: unknown pragma ignored [-Wunknown-pragmas]
+#pragma warning (disable:4786)
+        ^
+1 warning generated.
+Finished building: ../src/main.cpp
+ 
+Building target: Aufgabenblock_2
+Invoking: MacOS X C++ Linker
+g++ -L/Users/yagi/boost -o "Aufgabenblock_2"  ./src/Fahrausnahme.o ./src/Fahren.o ./src/Fahrrad.o ./src/Fahrzeug.o ./src/Kreuzung.o ./src/Losfahren.o ./src/PKW.o ./src/Parken.o ./src/SimuClient.o ./src/SimuClientSocket.o ./src/Simulationsobjekt.o ./src/Streckenende.o ./src/Verhalten.o ./src/Weg.o ./src/main.o   
+Finished building target: Aufgabenblock_2
+ 
+23:09:18 **** Incremental Build of configuration Debug for project Aufgabenblock_2 ****
+make all 
+Building file: ../src/Fahren.cpp
+Invoking: GCC C++ Compiler
+g++ -std=c++17 -I/Users/yagi/boost -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"src/Fahren.d" -MT"src/Fahren.o" -o "src/Fahren.o" "../src/Fahren.cpp"
+Finished building: ../src/Fahren.cpp
+ 
+Building target: Aufgabenblock_2
+Invoking: MacOS X C++ Linker
+g++ -L/Users/yagi/boost -o "Aufgabenblock_2"  ./src/Fahrausnahme.o ./src/Fahren.o ./src/Fahrrad.o ./src/Fahrzeug.o ./src/Kreuzung.o ./src/Losfahren.o ./src/PKW.o ./src/Parken.o ./src/SimuClient.o ./src/SimuClientSocket.o ./src/Simulationsobjekt.o ./src/Streckenende.o ./src/Verhalten.o ./src/Weg.o ./src/main.o   
+Finished building target: Aufgabenblock_2
+ 
+23:11:11 **** Incremental Build of configuration Debug for project Aufgabenblock_2 ****
+make all 
+Building file: ../src/Fahren.cpp
+Invoking: GCC C++ Compiler
+g++ -std=c++17 -I/Users/yagi/boost -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"src/Fahren.d" -MT"src/Fahren.o" -o "src/Fahren.o" "../src/Fahren.cpp"
+Finished building: ../src/Fahren.cpp
+ 
+Building file: ../src/Kreuzung.cpp
+Invoking: GCC C++ Compiler
+g++ -std=c++17 -I/Users/yagi/boost -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"src/Kreuzung.d" -MT"src/Kreuzung.o" -o "src/Kreuzung.o" "../src/Kreuzung.cpp"
+Finished building: ../src/Kreuzung.cpp
+ 
+Building file: ../src/main.cpp
+Invoking: GCC C++ Compiler
+g++ -std=c++17 -I/Users/yagi/boost -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"src/main.d" -MT"src/main.o" -o "src/main.o" "../src/main.cpp"
+In file included from ../src/main.cpp:13:
+../src/SimuClient.h:2:9: warning: unknown pragma ignored [-Wunknown-pragmas]
+#pragma warning (disable:4786)
+        ^
+1 warning generated.
+Finished building: ../src/main.cpp
+ 
+Building target: Aufgabenblock_2
+Invoking: MacOS X C++ Linker
+g++ -L/Users/yagi/boost -o "Aufgabenblock_2"  ./src/Fahrausnahme.o ./src/Fahren.o ./src/Fahrrad.o ./src/Fahrzeug.o ./src/Kreuzung.o ./src/Losfahren.o ./src/PKW.o ./src/Parken.o ./src/SimuClient.o ./src/SimuClientSocket.o ./src/Simulationsobjekt.o ./src/Streckenende.o ./src/Verhalten.o ./src/Weg.o ./src/main.o   
+Finished building target: Aufgabenblock_2
+ 
+23:13:56 **** Incremental Build of configuration Debug for project Aufgabenblock_2 ****
+make all 
+Building file: ../src/Fahrausnahme.cpp
+Invoking: GCC C++ Compiler
+g++ -std=c++17 -I/Users/yagi/boost -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"src/Fahrausnahme.d" -MT"src/Fahrausnahme.o" -o "src/Fahrausnahme.o" "../src/Fahrausnahme.cpp"
+Finished building: ../src/Fahrausnahme.cpp
+ 
+Building file: ../src/Fahren.cpp
+Invoking: GCC C++ Compiler
+g++ -std=c++17 -I/Users/yagi/boost -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"src/Fahren.d" -MT"src/Fahren.o" -o "src/Fahren.o" "../src/Fahren.cpp"
+Finished building: ../src/Fahren.cpp
+ 
+Building file: ../src/Fahrrad.cpp
+Invoking: GCC C++ Compiler
+g++ -std=c++17 -I/Users/yagi/boost -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"src/Fahrrad.d" -MT"src/Fahrrad.o" -o "src/Fahrrad.o" "../src/Fahrrad.cpp"
+In file included from ../src/Fahrrad.cpp:4:
+../src/SimuClient.h:2:9: warning: unknown pragma ignored [-Wunknown-pragmas]
+#pragma warning (disable:4786)
+        ^
+1 warning generated.
+Finished building: ../src/Fahrrad.cpp
+ 
+Building file: ../src/Fahrzeug.cpp
+Invoking: GCC C++ Compiler
+g++ -std=c++17 -I/Users/yagi/boost -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"src/Fahrzeug.d" -MT"src/Fahrzeug.o" -o "src/Fahrzeug.o" "../src/Fahrzeug.cpp"
+../src/Fahrzeug.cpp:81:9: warning: unused variable 'dTeilstrecke' [-Wunused-variable]
+        double dTeilstrecke = p_pVerhalten->dStrecke(*this, dZeitraum);
+               ^
+1 warning generated.
+Finished building: ../src/Fahrzeug.cpp
+ 
+Building file: ../src/Kreuzung.cpp
+Invoking: GCC C++ Compiler
+g++ -std=c++17 -I/Users/yagi/boost -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"src/Kreuzung.d" -MT"src/Kreuzung.o" -o "src/Kreuzung.o" "../src/Kreuzung.cpp"
+Finished building: ../src/Kreuzung.cpp
+ 
+Building file: ../src/Losfahren.cpp
+Invoking: GCC C++ Compiler
+g++ -std=c++17 -I/Users/yagi/boost -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"src/Losfahren.d" -MT"src/Losfahren.o" -o "src/Losfahren.o" "../src/Losfahren.cpp"
+Finished building: ../src/Losfahren.cpp
+ 
+Building file: ../src/PKW.cpp
+Invoking: GCC C++ Compiler
+g++ -std=c++17 -I/Users/yagi/boost -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"src/PKW.d" -MT"src/PKW.o" -o "src/PKW.o" "../src/PKW.cpp"
+In file included from ../src/PKW.cpp:4:
+../src/SimuClient.h:2:9: warning: unknown pragma ignored [-Wunknown-pragmas]
+#pragma warning (disable:4786)
+        ^
+1 warning generated.
+Finished building: ../src/PKW.cpp
+ 
+Building file: ../src/Parken.cpp
+Invoking: GCC C++ Compiler
+g++ -std=c++17 -I/Users/yagi/boost -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"src/Parken.d" -MT"src/Parken.o" -o "src/Parken.o" "../src/Parken.cpp"
+Finished building: ../src/Parken.cpp
+ 
+Building file: ../src/Streckenende.cpp
+Invoking: GCC C++ Compiler
+g++ -std=c++17 -I/Users/yagi/boost -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"src/Streckenende.d" -MT"src/Streckenende.o" -o "src/Streckenende.o" "../src/Streckenende.cpp"
+Finished building: ../src/Streckenende.cpp
+ 
+Building file: ../src/Verhalten.cpp
+Invoking: GCC C++ Compiler
+g++ -std=c++17 -I/Users/yagi/boost -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"src/Verhalten.d" -MT"src/Verhalten.o" -o "src/Verhalten.o" "../src/Verhalten.cpp"
+Finished building: ../src/Verhalten.cpp
+ 
+Building file: ../src/Weg.cpp
+Invoking: GCC C++ Compiler
+g++ -std=c++17 -I/Users/yagi/boost -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"src/Weg.d" -MT"src/Weg.o" -o "src/Weg.o" "../src/Weg.cpp"
+../src/Weg.cpp:31:2: warning: field 'p_pKreuzung' will be initialized after field 'p_eTempolimit' [-Wreorder-ctor]
+        p_pKreuzung(pKreuzung),
+        ^~~~~~~~~~~~~~~~~~~~~~
+        p_eTempolimit(eTempolimit)
+1 warning generated.
+Finished building: ../src/Weg.cpp
+ 
+Building file: ../src/main.cpp
+Invoking: GCC C++ Compiler
+g++ -std=c++17 -I/Users/yagi/boost -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"src/main.d" -MT"src/main.o" -o "src/main.o" "../src/main.cpp"
+In file included from ../src/main.cpp:13:
+../src/SimuClient.h:2:9: warning: unknown pragma ignored [-Wunknown-pragmas]
+#pragma warning (disable:4786)
+        ^
+1 warning generated.
+Finished building: ../src/main.cpp
+ 
+Building target: Aufgabenblock_2
+Invoking: MacOS X C++ Linker
+g++ -L/Users/yagi/boost -o "Aufgabenblock_2"  ./src/Fahrausnahme.o ./src/Fahren.o ./src/Fahrrad.o ./src/Fahrzeug.o ./src/Kreuzung.o ./src/Losfahren.o ./src/PKW.o ./src/Parken.o ./src/SimuClient.o ./src/SimuClientSocket.o ./src/Simulationsobjekt.o ./src/Streckenende.o ./src/Verhalten.o ./src/Weg.o ./src/main.o   
+Finished building target: Aufgabenblock_2
+ 
+23:15:39 **** Incremental Build of configuration Debug for project Aufgabenblock_2 ****
+make all 
+Building file: ../src/Fahrausnahme.cpp
+Invoking: GCC C++ Compiler
+g++ -std=c++17 -I/Users/yagi/boost -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"src/Fahrausnahme.d" -MT"src/Fahrausnahme.o" -o "src/Fahrausnahme.o" "../src/Fahrausnahme.cpp"
+Finished building: ../src/Fahrausnahme.cpp
+ 
+Building file: ../src/Fahren.cpp
+Invoking: GCC C++ Compiler
+g++ -std=c++17 -I/Users/yagi/boost -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"src/Fahren.d" -MT"src/Fahren.o" -o "src/Fahren.o" "../src/Fahren.cpp"
+Finished building: ../src/Fahren.cpp
+ 
+Building file: ../src/Fahrrad.cpp
+Invoking: GCC C++ Compiler
+g++ -std=c++17 -I/Users/yagi/boost -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"src/Fahrrad.d" -MT"src/Fahrrad.o" -o "src/Fahrrad.o" "../src/Fahrrad.cpp"
+In file included from ../src/Fahrrad.cpp:4:
+../src/SimuClient.h:2:9: warning: unknown pragma ignored [-Wunknown-pragmas]
+#pragma warning (disable:4786)
+        ^
+1 warning generated.
+Finished building: ../src/Fahrrad.cpp
+ 
+Building file: ../src/Fahrzeug.cpp
+Invoking: GCC C++ Compiler
+g++ -std=c++17 -I/Users/yagi/boost -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"src/Fahrzeug.d" -MT"src/Fahrzeug.o" -o "src/Fahrzeug.o" "../src/Fahrzeug.cpp"
+../src/Fahrzeug.cpp:81:9: warning: unused variable 'dTeilstrecke' [-Wunused-variable]
+        double dTeilstrecke = p_pVerhalten->dStrecke(*this, dZeitraum);
+               ^
+1 warning generated.
+Finished building: ../src/Fahrzeug.cpp
+ 
+Building file: ../src/Kreuzung.cpp
+Invoking: GCC C++ Compiler
+g++ -std=c++17 -I/Users/yagi/boost -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"src/Kreuzung.d" -MT"src/Kreuzung.o" -o "src/Kreuzung.o" "../src/Kreuzung.cpp"
+Finished building: ../src/Kreuzung.cpp
+ 
+Building file: ../src/Losfahren.cpp
+Invoking: GCC C++ Compiler
+g++ -std=c++17 -I/Users/yagi/boost -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"src/Losfahren.d" -MT"src/Losfahren.o" -o "src/Losfahren.o" "../src/Losfahren.cpp"
+Finished building: ../src/Losfahren.cpp
+ 
+Building file: ../src/PKW.cpp
+Invoking: GCC C++ Compiler
+g++ -std=c++17 -I/Users/yagi/boost -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"src/PKW.d" -MT"src/PKW.o" -o "src/PKW.o" "../src/PKW.cpp"
+In file included from ../src/PKW.cpp:4:
+../src/SimuClient.h:2:9: warning: unknown pragma ignored [-Wunknown-pragmas]
+#pragma warning (disable:4786)
+        ^
+1 warning generated.
+Finished building: ../src/PKW.cpp
+ 
+Building file: ../src/Parken.cpp
+Invoking: GCC C++ Compiler
+g++ -std=c++17 -I/Users/yagi/boost -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"src/Parken.d" -MT"src/Parken.o" -o "src/Parken.o" "../src/Parken.cpp"
+Finished building: ../src/Parken.cpp
+ 
+Building file: ../src/Streckenende.cpp
+Invoking: GCC C++ Compiler
+g++ -std=c++17 -I/Users/yagi/boost -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"src/Streckenende.d" -MT"src/Streckenende.o" -o "src/Streckenende.o" "../src/Streckenende.cpp"
+Finished building: ../src/Streckenende.cpp
+ 
+Building file: ../src/Verhalten.cpp
+Invoking: GCC C++ Compiler
+g++ -std=c++17 -I/Users/yagi/boost -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"src/Verhalten.d" -MT"src/Verhalten.o" -o "src/Verhalten.o" "../src/Verhalten.cpp"
+Finished building: ../src/Verhalten.cpp
+ 
+Building file: ../src/Weg.cpp
+Invoking: GCC C++ Compiler
+g++ -std=c++17 -I/Users/yagi/boost -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"src/Weg.d" -MT"src/Weg.o" -o "src/Weg.o" "../src/Weg.cpp"
+../src/Weg.cpp:31:2: warning: field 'p_pKreuzung' will be initialized after field 'p_eTempolimit' [-Wreorder-ctor]
+        p_pKreuzung(pKreuzung),
+        ^~~~~~~~~~~~~~~~~~~~~~
+        p_eTempolimit(eTempolimit)
+1 warning generated.
+Finished building: ../src/Weg.cpp
+ 
+Building file: ../src/main.cpp
+Invoking: GCC C++ Compiler
+g++ -std=c++17 -I/Users/yagi/boost -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"src/main.d" -MT"src/main.o" -o "src/main.o" "../src/main.cpp"
+In file included from ../src/main.cpp:13:
+../src/SimuClient.h:2:9: warning: unknown pragma ignored [-Wunknown-pragmas]
+#pragma warning (disable:4786)
+        ^
+1 warning generated.
+Finished building: ../src/main.cpp
+ 
+Building target: Aufgabenblock_2
+Invoking: MacOS X C++ Linker
+g++ -L/Users/yagi/boost -o "Aufgabenblock_2"  ./src/Fahrausnahme.o ./src/Fahren.o ./src/Fahrrad.o ./src/Fahrzeug.o ./src/Kreuzung.o ./src/Losfahren.o ./src/PKW.o ./src/Parken.o ./src/SimuClient.o ./src/SimuClientSocket.o ./src/Simulationsobjekt.o ./src/Streckenende.o ./src/Verhalten.o ./src/Weg.o ./src/main.o   
+Finished building target: Aufgabenblock_2
+ 
+23:18:32 **** Incremental Build of configuration Debug for project Aufgabenblock_2 ****
+make all 
+make: Nothing to be done for `all'.
+23:21:06 **** Incremental Build of configuration Debug for project Aufgabenblock_2 ****
+make all 
+Building file: ../src/main.cpp
+Invoking: GCC C++ Compiler
+g++ -std=c++17 -I/Users/yagi/boost -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"src/main.d" -MT"src/main.o" -o "src/main.o" "../src/main.cpp"
+In file included from ../src/main.cpp:13:
+../src/SimuClient.h:2:9: warning: unknown pragma ignored [-Wunknown-pragmas]
+#pragma warning (disable:4786)
+        ^
+1 warning generated.
+Finished building: ../src/main.cpp
+ 
+Building target: Aufgabenblock_2
+Invoking: MacOS X C++ Linker
+g++ -L/Users/yagi/boost -o "Aufgabenblock_2"  ./src/Fahrausnahme.o ./src/Fahren.o ./src/Fahrrad.o ./src/Fahrzeug.o ./src/Kreuzung.o ./src/Losfahren.o ./src/PKW.o ./src/Parken.o ./src/SimuClient.o ./src/SimuClientSocket.o ./src/Simulationsobjekt.o ./src/Streckenende.o ./src/Verhalten.o ./src/Weg.o ./src/main.o   
+Finished building target: Aufgabenblock_2
+ 
+23:25:20 **** Incremental Build of configuration Debug for project Aufgabenblock_2 ****
+make all 
+Building file: ../src/Fahrausnahme.cpp
+Invoking: GCC C++ Compiler
+g++ -std=c++17 -I/Users/yagi/boost -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"src/Fahrausnahme.d" -MT"src/Fahrausnahme.o" -o "src/Fahrausnahme.o" "../src/Fahrausnahme.cpp"
+Finished building: ../src/Fahrausnahme.cpp
+ 
+Building file: ../src/Fahren.cpp
+Invoking: GCC C++ Compiler
+g++ -std=c++17 -I/Users/yagi/boost -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"src/Fahren.d" -MT"src/Fahren.o" -o "src/Fahren.o" "../src/Fahren.cpp"
+Finished building: ../src/Fahren.cpp
+ 
+Building file: ../src/Fahrrad.cpp
+Invoking: GCC C++ Compiler
+g++ -std=c++17 -I/Users/yagi/boost -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"src/Fahrrad.d" -MT"src/Fahrrad.o" -o "src/Fahrrad.o" "../src/Fahrrad.cpp"
+In file included from ../src/Fahrrad.cpp:4:
+../src/SimuClient.h:2:9: warning: unknown pragma ignored [-Wunknown-pragmas]
+#pragma warning (disable:4786)
+        ^
+1 warning generated.
+Finished building: ../src/Fahrrad.cpp
+ 
+Building file: ../src/Fahrzeug.cpp
+Invoking: GCC C++ Compiler
+g++ -std=c++17 -I/Users/yagi/boost -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"src/Fahrzeug.d" -MT"src/Fahrzeug.o" -o "src/Fahrzeug.o" "../src/Fahrzeug.cpp"
+../src/Fahrzeug.cpp:81:9: warning: unused variable 'dTeilstrecke' [-Wunused-variable]
+        double dTeilstrecke = p_pVerhalten->dStrecke(*this, dZeitraum);
+               ^
+1 warning generated.
+Finished building: ../src/Fahrzeug.cpp
+ 
+Building file: ../src/Kreuzung.cpp
+Invoking: GCC C++ Compiler
+g++ -std=c++17 -I/Users/yagi/boost -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"src/Kreuzung.d" -MT"src/Kreuzung.o" -o "src/Kreuzung.o" "../src/Kreuzung.cpp"
+Finished building: ../src/Kreuzung.cpp
+ 
+Building file: ../src/Losfahren.cpp
+Invoking: GCC C++ Compiler
+g++ -std=c++17 -I/Users/yagi/boost -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"src/Losfahren.d" -MT"src/Losfahren.o" -o "src/Losfahren.o" "../src/Losfahren.cpp"
+Finished building: ../src/Losfahren.cpp
+ 
+Building file: ../src/PKW.cpp
+Invoking: GCC C++ Compiler
+g++ -std=c++17 -I/Users/yagi/boost -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"src/PKW.d" -MT"src/PKW.o" -o "src/PKW.o" "../src/PKW.cpp"
+In file included from ../src/PKW.cpp:4:
+../src/SimuClient.h:2:9: warning: unknown pragma ignored [-Wunknown-pragmas]
+#pragma warning (disable:4786)
+        ^
+1 warning generated.
+Finished building: ../src/PKW.cpp
+ 
+Building file: ../src/Parken.cpp
+Invoking: GCC C++ Compiler
+g++ -std=c++17 -I/Users/yagi/boost -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"src/Parken.d" -MT"src/Parken.o" -o "src/Parken.o" "../src/Parken.cpp"
+Finished building: ../src/Parken.cpp
+ 
+Building file: ../src/Streckenende.cpp
+Invoking: GCC C++ Compiler
+g++ -std=c++17 -I/Users/yagi/boost -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"src/Streckenende.d" -MT"src/Streckenende.o" -o "src/Streckenende.o" "../src/Streckenende.cpp"
+Finished building: ../src/Streckenende.cpp
+ 
+Building file: ../src/Verhalten.cpp
+Invoking: GCC C++ Compiler
+g++ -std=c++17 -I/Users/yagi/boost -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"src/Verhalten.d" -MT"src/Verhalten.o" -o "src/Verhalten.o" "../src/Verhalten.cpp"
+Finished building: ../src/Verhalten.cpp
+ 
+Building file: ../src/Weg.cpp
+Invoking: GCC C++ Compiler
+g++ -std=c++17 -I/Users/yagi/boost -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"src/Weg.d" -MT"src/Weg.o" -o "src/Weg.o" "../src/Weg.cpp"
+../src/Weg.cpp:31:2: warning: field 'p_pKreuzung' will be initialized after field 'p_eTempolimit' [-Wreorder-ctor]
+        p_pKreuzung(pKreuzung),
+        ^~~~~~~~~~~~~~~~~~~~~~
+        p_eTempolimit(eTempolimit)
+1 warning generated.
+Finished building: ../src/Weg.cpp
+ 
+Building file: ../src/main.cpp
+Invoking: GCC C++ Compiler
+g++ -std=c++17 -I/Users/yagi/boost -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"src/main.d" -MT"src/main.o" -o "src/main.o" "../src/main.cpp"
+In file included from ../src/main.cpp:13:
+../src/SimuClient.h:2:9: warning: unknown pragma ignored [-Wunknown-pragmas]
+#pragma warning (disable:4786)
+        ^
+1 warning generated.
+Finished building: ../src/main.cpp
+ 
+Building target: Aufgabenblock_2
+Invoking: MacOS X C++ Linker
+g++ -L/Users/yagi/boost -o "Aufgabenblock_2"  ./src/Fahrausnahme.o ./src/Fahren.o ./src/Fahrrad.o ./src/Fahrzeug.o ./src/Kreuzung.o ./src/Losfahren.o ./src/PKW.o ./src/Parken.o ./src/SimuClient.o ./src/SimuClientSocket.o ./src/Simulationsobjekt.o ./src/Streckenende.o ./src/Verhalten.o ./src/Weg.o ./src/main.o   
+Finished building target: Aufgabenblock_2
+ 
+23:26:20 **** Incremental Build of configuration Debug for project Aufgabenblock_2 ****
+make all 
+Building file: ../src/Kreuzung.cpp
+Invoking: GCC C++ Compiler
+g++ -std=c++17 -I/Users/yagi/boost -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"src/Kreuzung.d" -MT"src/Kreuzung.o" -o "src/Kreuzung.o" "../src/Kreuzung.cpp"
+Finished building: ../src/Kreuzung.cpp
+ 
+Building target: Aufgabenblock_2
+Invoking: MacOS X C++ Linker
+g++ -L/Users/yagi/boost -o "Aufgabenblock_2"  ./src/Fahrausnahme.o ./src/Fahren.o ./src/Fahrrad.o ./src/Fahrzeug.o ./src/Kreuzung.o ./src/Losfahren.o ./src/PKW.o ./src/Parken.o ./src/SimuClient.o ./src/SimuClientSocket.o ./src/Simulationsobjekt.o ./src/Streckenende.o ./src/Verhalten.o ./src/Weg.o ./src/main.o   
+Finished building target: Aufgabenblock_2
+ 

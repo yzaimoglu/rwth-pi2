@@ -24,7 +24,7 @@ void Kreuzung::vVerbinde(std::string sNameHinweg, std::string sNameRuckweg,
 
 	// Erstellen der Wege als shared_ptr
 	std::shared_ptr<Weg> pHinweg = std::make_shared<Weg>(sNameHinweg, dWegLaenge, pZielKreuzung, eTempolimit, bUeberholverbot);
-	std::shared_ptr<Weg> pRueckweg = std::make_shared<Weg>(sNameHinweg, dWegLaenge, pStartKreuzung, eTempolimit, bUeberholverbot);
+	std::shared_ptr<Weg> pRueckweg = std::make_shared<Weg>(sNameRuckweg, dWegLaenge, pStartKreuzung, eTempolimit, bUeberholverbot);
 
 	// Bekanntmachen der Wege
 	pHinweg->setRueckweg(pRueckweg);
@@ -41,7 +41,7 @@ void Kreuzung::vAnnahme(std::unique_ptr<Fahrzeug> pFahrzeug, double dZeit) {
 	vTanken(*pFahrzeug);
 
 	// Weiterleiten des Fahrzeuges auf den nächsten Weg
-	p_pWege.front()->vAnnahme(move(pFahrzeug), dZeit);
+	p_pWege.back()->vAnnahme(move(pFahrzeug), dZeit);
 }
 
 // Simulation einer Kreuzung

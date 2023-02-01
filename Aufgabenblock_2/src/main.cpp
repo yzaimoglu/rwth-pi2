@@ -521,17 +521,16 @@ void vAufgabe_6a() {
 
 void vAufgabe_7() {
 	// Erzeugung der vier gewünschten Kreuzungen
-	std::shared_ptr<Kreuzung> kr1 = std::make_shared<Kreuzung>("kr1", 100000);
-	std::shared_ptr<Kreuzung> kr2 = std::make_shared<Kreuzung>("kr2", 100000);
-	std::shared_ptr<Kreuzung> kr3 = std::make_shared<Kreuzung>("kr3", 100000);
-	std::shared_ptr<Kreuzung> kr4 = std::make_shared<Kreuzung>("kr4", 100000);
+	std::shared_ptr<Kreuzung> kr1 = std::make_shared<Kreuzung>("kr1", 0);
+	std::shared_ptr<Kreuzung> kr2 = std::make_shared<Kreuzung>("kr2", 1000);
+	std::shared_ptr<Kreuzung> kr3 = std::make_shared<Kreuzung>("kr3", 0);
+	std::shared_ptr<Kreuzung> kr4 = std::make_shared<Kreuzung>("kr4", 0);
 
 	// Erzeugung der gewünschten Fahrzeuge
-	std::unique_ptr<Fahrzeug> fahrzeug1 = std::make_unique<PKW>("PKW1", 30, 20, 600);
-	std::unique_ptr<Fahrzeug> fahrzeug2 = std::make_unique<PKW>("PKW2", 30, 20, 600);
-	std::unique_ptr<Fahrzeug> fahrzeug3 = std::make_unique<PKW>("PKW3", 30, 20, 600);
+	std::unique_ptr<Fahrzeug> fahrzeug1 = std::make_unique<PKW>("PKW1", 15, 20, 600);
+	std::unique_ptr<Fahrzeug> fahrzeug2 = std::make_unique<PKW>("PKW2", 20, 20, 600);
+	std::unique_ptr<Fahrzeug> fahrzeug3 = std::make_unique<PKW>("PKW3", 20, 20, 600);
 	std::unique_ptr<Fahrzeug> fahrzeug4 = std::make_unique<Fahrrad>("Fahrrad1", 10);
-	std::unique_ptr<Fahrzeug> fahrzeug5 = std::make_unique<Fahrrad>("Fahrrad2", 10);
 
 	// Initialisierung der Grafik auf dem SimuServer
 	bInitialisiereGrafik(1000, 1000);
@@ -559,23 +558,23 @@ void vAufgabe_7() {
 	bZeichneStrasse("W44a", "W44b", 130, 7, s6);
 
 	// Verbindung der Straßen mit den Kreuzungen
-	kr1->vVerbinde("W12", "W21", 40, kr1, kr2, Tempolimit::INNERORTS, false);
-	kr2->vVerbinde("W23a", "W32a", 115, kr2, kr3, Tempolimit::AUTOBAHN, false);
-	kr2->vVerbinde("W23b", "W32b", 40, kr2, kr3, Tempolimit::INNERORTS, false);
-	kr2->vVerbinde("W24", "W42", 55, kr2, kr4, Tempolimit::INNERORTS, false);
-	kr3->vVerbinde("W34", "W43", 85, kr3, kr4, Tempolimit::AUTOBAHN, false);
-	kr4->vVerbinde("W44a", "W44b", 130, kr4, kr4, Tempolimit::LANDSTRASSE, false);
+	Kreuzung::vVerbinde("W12", "W21", 40, kr1, kr2, Tempolimit::INNERORTS, false);
+	Kreuzung::vVerbinde("W23a", "W32a", 115, kr2, kr3, Tempolimit::AUTOBAHN, false);
+	Kreuzung::vVerbinde("W23b", "W32b", 40, kr2, kr3, Tempolimit::INNERORTS, false);
+	Kreuzung::vVerbinde("W24", "W42", 55, kr2, kr4, Tempolimit::INNERORTS, false);
+	Kreuzung::vVerbinde("W34", "W43", 85, kr3, kr4, Tempolimit::AUTOBAHN, false);
+	Kreuzung::vVerbinde("W44a", "W44b", 130, kr4, kr4, Tempolimit::LANDSTRASSE, false);
 
 	// Setzen der Fahrzeuge auf die Kreuzungen
 	kr2->vAnnahme(std::move(fahrzeug2), 0);
-	kr1->vAnnahme(std::move(fahrzeug3), 0);
+	kr1->vAnnahme(std::move(fahrzeug3), 1);
 	kr1->vAnnahme(std::move(fahrzeug4), 0);
 	kr1->vAnnahme(std::move(fahrzeug1), 0);
 
 	// Definieren des Zeitschritts
-	double dZeitschritt = 0.5;
-	int iAnzahlZeitschritte = 20;
-	double dTankzeit = 3.0;
+	double dZeitschritt = 0.2;
+	int iAnzahlZeitschritte = 40;
+	//double dTankzeit = 3.0;
 
 	// Wiederholen des Ganzen, bis alle Zeitschritte gemacht wurden
 	for(dGlobaleZeit = 0; dGlobaleZeit <= (dZeitschritt * iAnzahlZeitschritte); dGlobaleZeit += dZeitschritt) {

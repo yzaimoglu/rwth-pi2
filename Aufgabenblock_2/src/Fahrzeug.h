@@ -1,13 +1,12 @@
 #pragma once
 #include <iostream>
 #include "Weg.h"
+#include "Verhalten.h"
 
 #ifndef FAHRZEUG_H_
 #define FAHRZEUG_H_
 
 extern double dGlobaleZeit;
-
-class Verhalten;
 
 // Klasse Fahrzeug
 class Fahrzeug : public Simulationsobjekt {
