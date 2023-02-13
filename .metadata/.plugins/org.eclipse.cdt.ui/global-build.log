@@ -5686,3 +5686,279 @@ Invoking: MacOS X C++ Linker
 g++ -L/Users/yagi/boost -o "Aufgabenblock_2"  ./src/Fahrausnahme.o ./src/Fahren.o ./src/Fahrrad.o ./src/Fahrzeug.o ./src/Kreuzung.o ./src/Losfahren.o ./src/PKW.o ./src/Parken.o ./src/SimuClient.o ./src/SimuClientSocket.o ./src/Simulationsobjekt.o ./src/Streckenende.o ./src/Verhalten.o ./src/Weg.o ./src/main.o   
 Finished building target: Aufgabenblock_2
  
+00:15:35 **** Incremental Build of configuration Debug for project Aufgabenblock_2 ****
+make all 
+Building file: ../src/Fahrausnahme.cpp
+Invoking: GCC C++ Compiler
+g++ -std=c++17 -I/Users/yagi/boost -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"src/Fahrausnahme.d" -MT"src/Fahrausnahme.o" -o "src/Fahrausnahme.o" "../src/Fahrausnahme.cpp"
+Finished building: ../src/Fahrausnahme.cpp
+ 
+Building file: ../src/Fahren.cpp
+Invoking: GCC C++ Compiler
+g++ -std=c++17 -I/Users/yagi/boost -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"src/Fahren.d" -MT"src/Fahren.o" -o "src/Fahren.o" "../src/Fahren.cpp"
+Finished building: ../src/Fahren.cpp
+ 
+Building file: ../src/Fahrrad.cpp
+Invoking: GCC C++ Compiler
+g++ -std=c++17 -I/Users/yagi/boost -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"src/Fahrrad.d" -MT"src/Fahrrad.o" -o "src/Fahrrad.o" "../src/Fahrrad.cpp"
+In file included from ../src/Fahrrad.cpp:4:
+../src/SimuClient.h:2:9: warning: unknown pragma ignored [-Wunknown-pragmas]
+#pragma warning (disable:4786)
+        ^
+1 warning generated.
+Finished building: ../src/Fahrrad.cpp
+ 
+Building file: ../src/Fahrzeug.cpp
+Invoking: GCC C++ Compiler
+g++ -std=c++17 -I/Users/yagi/boost -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"src/Fahrzeug.d" -MT"src/Fahrzeug.o" -o "src/Fahrzeug.o" "../src/Fahrzeug.cpp"
+../src/Fahrzeug.cpp:81:9: warning: unused variable 'dTeilstrecke' [-Wunused-variable]
+        double dTeilstrecke = p_pVerhalten->dStrecke(*this, dZeitraum);
+               ^
+1 warning generated.
+Finished building: ../src/Fahrzeug.cpp
+ 
+Building file: ../src/Kreuzung.cpp
+Invoking: GCC C++ Compiler
+g++ -std=c++17 -I/Users/yagi/boost -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"src/Kreuzung.d" -MT"src/Kreuzung.o" -o "src/Kreuzung.o" "../src/Kreuzung.cpp"
+Finished building: ../src/Kreuzung.cpp
+ 
+Building file: ../src/Losfahren.cpp
+Invoking: GCC C++ Compiler
+g++ -std=c++17 -I/Users/yagi/boost -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"src/Losfahren.d" -MT"src/Losfahren.o" -o "src/Losfahren.o" "../src/Losfahren.cpp"
+Finished building: ../src/Losfahren.cpp
+ 
+Building file: ../src/PKW.cpp
+Invoking: GCC C++ Compiler
+g++ -std=c++17 -I/Users/yagi/boost -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"src/PKW.d" -MT"src/PKW.o" -o "src/PKW.o" "../src/PKW.cpp"
+In file included from ../src/PKW.cpp:4:
+../src/SimuClient.h:2:9: warning: unknown pragma ignored [-Wunknown-pragmas]
+#pragma warning (disable:4786)
+        ^
+1 warning generated.
+Finished building: ../src/PKW.cpp
+ 
+Building file: ../src/Parken.cpp
+Invoking: GCC C++ Compiler
+g++ -std=c++17 -I/Users/yagi/boost -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"src/Parken.d" -MT"src/Parken.o" -o "src/Parken.o" "../src/Parken.cpp"
+Finished building: ../src/Parken.cpp
+ 
+Building file: ../src/Streckenende.cpp
+Invoking: GCC C++ Compiler
+g++ -std=c++17 -I/Users/yagi/boost -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"src/Streckenende.d" -MT"src/Streckenende.o" -o "src/Streckenende.o" "../src/Streckenende.cpp"
+Finished building: ../src/Streckenende.cpp
+ 
+Building file: ../src/Verhalten.cpp
+Invoking: GCC C++ Compiler
+g++ -std=c++17 -I/Users/yagi/boost -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"src/Verhalten.d" -MT"src/Verhalten.o" -o "src/Verhalten.o" "../src/Verhalten.cpp"
+Finished building: ../src/Verhalten.cpp
+ 
+Building file: ../src/Weg.cpp
+Invoking: GCC C++ Compiler
+g++ -std=c++17 -I/Users/yagi/boost -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"src/Weg.d" -MT"src/Weg.o" -o "src/Weg.o" "../src/Weg.cpp"
+../src/Weg.cpp:31:2: warning: field 'p_pKreuzung' will be initialized after field 'p_eTempolimit' [-Wreorder-ctor]
+        p_pKreuzung(pKreuzung),
+        ^~~~~~~~~~~~~~~~~~~~~~
+        p_eTempolimit(eTempolimit)
+1 warning generated.
+Finished building: ../src/Weg.cpp
+ 
+Building file: ../src/main.cpp
+Invoking: GCC C++ Compiler
+g++ -std=c++17 -I/Users/yagi/boost -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"src/main.d" -MT"src/main.o" -o "src/main.o" "../src/main.cpp"
+In file included from ../src/main.cpp:13:
+../src/SimuClient.h:2:9: warning: unknown pragma ignored [-Wunknown-pragmas]
+#pragma warning (disable:4786)
+        ^
+1 warning generated.
+Finished building: ../src/main.cpp
+ 
+Building target: Aufgabenblock_2
+Invoking: MacOS X C++ Linker
+g++ -L/Users/yagi/boost -o "Aufgabenblock_2"  ./src/Fahrausnahme.o ./src/Fahren.o ./src/Fahrrad.o ./src/Fahrzeug.o ./src/Kreuzung.o ./src/Losfahren.o ./src/PKW.o ./src/Parken.o ./src/SimuClient.o ./src/SimuClientSocket.o ./src/Simulationsobjekt.o ./src/Streckenende.o ./src/Verhalten.o ./src/Weg.o ./src/main.o   
+Finished building target: Aufgabenblock_2
+ 
+00:17:01 **** Incremental Build of configuration Debug for project Aufgabenblock_2 ****
+make all 
+Building file: ../src/main.cpp
+Invoking: GCC C++ Compiler
+g++ -std=c++17 -I/Users/yagi/boost -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"src/main.d" -MT"src/main.o" -o "src/main.o" "../src/main.cpp"
+In file included from ../src/main.cpp:13:
+../src/SimuClient.h:2:9: warning: unknown pragma ignored [-Wunknown-pragmas]
+#pragma warning (disable:4786)
+        ^
+1 warning generated.
+Finished building: ../src/main.cpp
+ 
+Building target: Aufgabenblock_2
+Invoking: MacOS X C++ Linker
+g++ -L/Users/yagi/boost -o "Aufgabenblock_2"  ./src/Fahrausnahme.o ./src/Fahren.o ./src/Fahrrad.o ./src/Fahrzeug.o ./src/Kreuzung.o ./src/Losfahren.o ./src/PKW.o ./src/Parken.o ./src/SimuClient.o ./src/SimuClientSocket.o ./src/Simulationsobjekt.o ./src/Streckenende.o ./src/Verhalten.o ./src/Weg.o ./src/main.o   
+Finished building target: Aufgabenblock_2
+ 
+00:17:46 **** Incremental Build of configuration Debug for project Aufgabenblock_2 ****
+make all 
+Building file: ../src/main.cpp
+Invoking: GCC C++ Compiler
+g++ -std=c++17 -I/Users/yagi/boost -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"src/main.d" -MT"src/main.o" -o "src/main.o" "../src/main.cpp"
+In file included from ../src/main.cpp:13:
+../src/SimuClient.h:2:9: warning: unknown pragma ignored [-Wunknown-pragmas]
+#pragma warning (disable:4786)
+        ^
+1 warning generated.
+Finished building: ../src/main.cpp
+ 
+Building target: Aufgabenblock_2
+Invoking: MacOS X C++ Linker
+g++ -L/Users/yagi/boost -o "Aufgabenblock_2"  ./src/Fahrausnahme.o ./src/Fahren.o ./src/Fahrrad.o ./src/Fahrzeug.o ./src/Kreuzung.o ./src/Losfahren.o ./src/PKW.o ./src/Parken.o ./src/SimuClient.o ./src/SimuClientSocket.o ./src/Simulationsobjekt.o ./src/Streckenende.o ./src/Verhalten.o ./src/Weg.o ./src/main.o   
+Finished building target: Aufgabenblock_2
+ 
+00:19:05 **** Incremental Build of configuration Debug for project Aufgabenblock_2 ****
+make all 
+make: Nothing to be done for `all'.
+00:19:25 **** Incremental Build of configuration Debug for project Aufgabenblock_2 ****
+make all 
+Building file: ../src/main.cpp
+Invoking: GCC C++ Compiler
+g++ -std=c++17 -I/Users/yagi/boost -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"src/main.d" -MT"src/main.o" -o "src/main.o" "../src/main.cpp"
+In file included from ../src/main.cpp:13:
+../src/SimuClient.h:2:9: warning: unknown pragma ignored [-Wunknown-pragmas]
+#pragma warning (disable:4786)
+        ^
+1 warning generated.
+Finished building: ../src/main.cpp
+ 
+Building target: Aufgabenblock_2
+Invoking: MacOS X C++ Linker
+g++ -L/Users/yagi/boost -o "Aufgabenblock_2"  ./src/Fahrausnahme.o ./src/Fahren.o ./src/Fahrrad.o ./src/Fahrzeug.o ./src/Kreuzung.o ./src/Losfahren.o ./src/PKW.o ./src/Parken.o ./src/SimuClient.o ./src/SimuClientSocket.o ./src/Simulationsobjekt.o ./src/Streckenende.o ./src/Verhalten.o ./src/Weg.o ./src/main.o   
+Finished building target: Aufgabenblock_2
+ 
+09:25:02 **** Incremental Build of configuration Debug for project Aufgabenblock_2 ****
+make all 
+Building file: ../src/Fahrausnahme.cpp
+Invoking: GCC C++ Compiler
+g++ -std=c++17 -I/Users/yagi/boost -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"src/Fahrausnahme.d" -MT"src/Fahrausnahme.o" -o "src/Fahrausnahme.o" "../src/Fahrausnahme.cpp"
+Finished building: ../src/Fahrausnahme.cpp
+ 
+Building file: ../src/Fahren.cpp
+Invoking: GCC C++ Compiler
+g++ -std=c++17 -I/Users/yagi/boost -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"src/Fahren.d" -MT"src/Fahren.o" -o "src/Fahren.o" "../src/Fahren.cpp"
+Finished building: ../src/Fahren.cpp
+ 
+Building file: ../src/Fahrrad.cpp
+Invoking: GCC C++ Compiler
+g++ -std=c++17 -I/Users/yagi/boost -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"src/Fahrrad.d" -MT"src/Fahrrad.o" -o "src/Fahrrad.o" "../src/Fahrrad.cpp"
+In file included from ../src/Fahrrad.cpp:4:
+../src/SimuClient.h:2:9: warning: unknown pragma ignored [-Wunknown-pragmas]
+#pragma warning (disable:4786)
+        ^
+1 warning generated.
+Finished building: ../src/Fahrrad.cpp
+ 
+Building file: ../src/Fahrzeug.cpp
+Invoking: GCC C++ Compiler
+g++ -std=c++17 -I/Users/yagi/boost -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"src/Fahrzeug.d" -MT"src/Fahrzeug.o" -o "src/Fahrzeug.o" "../src/Fahrzeug.cpp"
+../src/Fahrzeug.cpp:81:9: warning: unused variable 'dTeilstrecke' [-Wunused-variable]
+        double dTeilstrecke = p_pVerhalten->dStrecke(*this, dZeitraum);
+               ^
+1 warning generated.
+Finished building: ../src/Fahrzeug.cpp
+ 
+Building file: ../src/Kreuzung.cpp
+Invoking: GCC C++ Compiler
+g++ -std=c++17 -I/Users/yagi/boost -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"src/Kreuzung.d" -MT"src/Kreuzung.o" -o "src/Kreuzung.o" "../src/Kreuzung.cpp"
+Finished building: ../src/Kreuzung.cpp
+ 
+Building file: ../src/Losfahren.cpp
+Invoking: GCC C++ Compiler
+g++ -std=c++17 -I/Users/yagi/boost -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"src/Losfahren.d" -MT"src/Losfahren.o" -o "src/Losfahren.o" "../src/Losfahren.cpp"
+Finished building: ../src/Losfahren.cpp
+ 
+Building file: ../src/PKW.cpp
+Invoking: GCC C++ Compiler
+g++ -std=c++17 -I/Users/yagi/boost -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"src/PKW.d" -MT"src/PKW.o" -o "src/PKW.o" "../src/PKW.cpp"
+In file included from ../src/PKW.cpp:4:
+../src/SimuClient.h:2:9: warning: unknown pragma ignored [-Wunknown-pragmas]
+#pragma warning (disable:4786)
+        ^
+1 warning generated.
+Finished building: ../src/PKW.cpp
+ 
+Building file: ../src/Parken.cpp
+Invoking: GCC C++ Compiler
+g++ -std=c++17 -I/Users/yagi/boost -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"src/Parken.d" -MT"src/Parken.o" -o "src/Parken.o" "../src/Parken.cpp"
+Finished building: ../src/Parken.cpp
+ 
+Building file: ../src/Streckenende.cpp
+Invoking: GCC C++ Compiler
+g++ -std=c++17 -I/Users/yagi/boost -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"src/Streckenende.d" -MT"src/Streckenende.o" -o "src/Streckenende.o" "../src/Streckenende.cpp"
+Finished building: ../src/Streckenende.cpp
+ 
+Building file: ../src/Verhalten.cpp
+Invoking: GCC C++ Compiler
+g++ -std=c++17 -I/Users/yagi/boost -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"src/Verhalten.d" -MT"src/Verhalten.o" -o "src/Verhalten.o" "../src/Verhalten.cpp"
+Finished building: ../src/Verhalten.cpp
+ 
+Building file: ../src/Weg.cpp
+Invoking: GCC C++ Compiler
+g++ -std=c++17 -I/Users/yagi/boost -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"src/Weg.d" -MT"src/Weg.o" -o "src/Weg.o" "../src/Weg.cpp"
+../src/Weg.cpp:31:2: warning: field 'p_pKreuzung' will be initialized after field 'p_eTempolimit' [-Wreorder-ctor]
+        p_pKreuzung(pKreuzung),
+        ^~~~~~~~~~~~~~~~~~~~~~
+        p_eTempolimit(eTempolimit)
+1 warning generated.
+Finished building: ../src/Weg.cpp
+ 
+Building file: ../src/main.cpp
+Invoking: GCC C++ Compiler
+g++ -std=c++17 -I/Users/yagi/boost -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"src/main.d" -MT"src/main.o" -o "src/main.o" "../src/main.cpp"
+In file included from ../src/main.cpp:13:
+../src/SimuClient.h:2:9: warning: unknown pragma ignored [-Wunknown-pragmas]
+#pragma warning (disable:4786)
+        ^
+1 warning generated.
+Finished building: ../src/main.cpp
+ 
+Building target: Aufgabenblock_2
+Invoking: MacOS X C++ Linker
+g++ -L/Users/yagi/boost -o "Aufgabenblock_2"  ./src/Fahrausnahme.o ./src/Fahren.o ./src/Fahrrad.o ./src/Fahrzeug.o ./src/Kreuzung.o ./src/Losfahren.o ./src/PKW.o ./src/Parken.o ./src/SimuClient.o ./src/SimuClientSocket.o ./src/Simulationsobjekt.o ./src/Streckenende.o ./src/Verhalten.o ./src/Weg.o ./src/main.o   
+Finished building target: Aufgabenblock_2
+ 
+09:28:40 **** Incremental Build of configuration Debug for project Aufgabenblock_2 ****
+make all 
+make: Nothing to be done for `all'.
+09:29:36 **** Incremental Build of configuration Debug for project Aufgabenblock_2 ****
+make all 
+make: Nothing to be done for `all'.
+09:34:04 **** Incremental Build of configuration Debug for project Aufgabenblock_2 ****
+make all 
+Building file: ../src/main.cpp
+Invoking: GCC C++ Compiler
+g++ -std=c++17 -I/Users/yagi/boost -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"src/main.d" -MT"src/main.o" -o "src/main.o" "../src/main.cpp"
+In file included from ../src/main.cpp:13:
+../src/SimuClient.h:2:9: warning: unknown pragma ignored [-Wunknown-pragmas]
+#pragma warning (disable:4786)
+        ^
+1 warning generated.
+Finished building: ../src/main.cpp
+ 
+Building target: Aufgabenblock_2
+Invoking: MacOS X C++ Linker
+g++ -L/Users/yagi/boost -o "Aufgabenblock_2"  ./src/Fahrausnahme.o ./src/Fahren.o ./src/Fahrrad.o ./src/Fahrzeug.o ./src/Kreuzung.o ./src/Losfahren.o ./src/PKW.o ./src/Parken.o ./src/SimuClient.o ./src/SimuClientSocket.o ./src/Simulationsobjekt.o ./src/Streckenende.o ./src/Verhalten.o ./src/Weg.o ./src/main.o   
+Finished building target: Aufgabenblock_2
+ 
+09:39:03 **** Incremental Build of configuration Debug for project Aufgabenblock_2 ****
+make all 
+Building file: ../src/main.cpp
+Invoking: GCC C++ Compiler
+g++ -std=c++17 -I/Users/yagi/boost -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"src/main.d" -MT"src/main.o" -o "src/main.o" "../src/main.cpp"
+In file included from ../src/main.cpp:13:
+../src/SimuClient.h:2:9: warning: unknown pragma ignored [-Wunknown-pragmas]
+#pragma warning (disable:4786)
+        ^
+1 warning generated.
+Finished building: ../src/main.cpp
+ 
+Building target: Aufgabenblock_2
+Invoking: MacOS X C++ Linker
+g++ -L/Users/yagi/boost -o "Aufgabenblock_2"  ./src/Fahrausnahme.o ./src/Fahren.o ./src/Fahrrad.o ./src/Fahrzeug.o ./src/Kreuzung.o ./src/Losfahren.o ./src/PKW.o ./src/Parken.o ./src/SimuClient.o ./src/SimuClientSocket.o ./src/Simulationsobjekt.o ./src/Streckenende.o ./src/Verhalten.o ./src/Weg.o ./src/main.o   
+Finished building target: Aufgabenblock_2
+ 

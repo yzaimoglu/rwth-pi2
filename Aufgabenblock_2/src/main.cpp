@@ -572,8 +572,8 @@ void vAufgabe_7() {
 	kr1->vAnnahme(std::move(fahrzeug1), 0);
 
 	// Definieren des Zeitschritts
-	double dZeitschritt = 0.2;
-	int iAnzahlZeitschritte = 40;
+	double dZeitschritt = 0.5;
+	int iAnzahlZeitschritte = 30;
 	//double dTankzeit = 3.0;
 
 	// Wiederholen des Ganzen, bis alle Zeitschritte gemacht wurden
