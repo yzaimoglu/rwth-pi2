@@ -3,11 +3,14 @@
 #include <iomanip>
 #include <vector>
 #include <cmath>
+#include <algorithm>
+#include <limits>
 #include "Fahrzeug.h"
 #include "Fahrrad.h"
 #include "PKW.h"
 
 
+using namespace std;
 // Die globale Variable dGlobaleZeit, damit die Fahrzeuge wissen, wie lange diese simulieren sollen
 double dGlobaleZeit;
 
@@ -271,19 +274,18 @@ void vAufgabe_3() {
 }
 
 // Aufgabe für das Vortestat
-/*double dEpsilon = 0.001;
+double dEpsilon = 0.001;
 void vAufgabe_AB1() {
-
     int l = 0; // Laufindex für gezielte AUsgabe
-    vector<int> ausgabe{13};
+    std::vector<int> ausgabe{13};
     double dTakt = 0.4;
 
     std::vector<unique_ptr<Fahrzeug>> vecFahrzeuge;
-    vecFahrzeuge.push_back(make_unique <PKW>("Audi", 229, 9.6));
-    vecFahrzeuge.push_back(make_unique <Fahrrad>("BMX", 24.7));
-    for (dGlobaleZeit = 0; dGlobaleZeit < 10; dGlobaleZeit += dTakt)
+    vecFahrzeuge.push_back(make_unique<PKW>("Audi", 217, 10.7));
+    vecFahrzeuge.push_back(make_unique<Fahrrad>("BMX", 21.4));
+    for (dGlobaleZeit = 0; dGlobaleZeit < 6; dGlobaleZeit += dTakt)
     {
-        auto itL = find(ausgabe.begin(), ausgabe.end(), l);
+        auto itL = std::find(ausgabe.begin(), ausgabe.end(), l);
         if (itL != ausgabe.end()) {
             std::cout << std::endl << l <<  " Globalezeit = " << dGlobaleZeit << std::endl;
             Fahrzeug::vKopf();
@@ -297,17 +299,17 @@ void vAufgabe_AB1() {
                 vecFahrzeuge[i]->dTanken();
             }
             if (itL != ausgabe.end()) {
-                std::cout << *vecFahrzeuge[i] << endl;
+                std::cout << *vecFahrzeuge[i] << std::endl;
             }
         }
         l++;
     }
     char c;
     std::cin >> c;
-}*/
+}
 
 int main() {
 	dGlobaleZeit = 0.0;
-	vAufgabe_3();
+	vAufgabe_AB1();
 	return 0;
 }

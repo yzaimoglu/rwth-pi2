@@ -2,6 +2,7 @@
 
 #include "vertagt_aktion.h"
 #include <list>
+#include <memory>
 
 namespace vertagt
 {

@@ -1,5 +1,6 @@
 #pragma once
 #include <iostream>
+#include <limits>
 #include "Weg.h"
 #include "Verhalten.h"
 

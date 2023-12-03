@@ -25,14 +25,6 @@ Weg::Weg(std::string sName, double dLaenge, Tempolimit eTempolimit) :
 
 }
 
-Weg::Weg(std::string sName, double dLaenge, std::weak_ptr<Kreuzung> pKreuzung, Tempolimit eTempolimit, bool bUeberholverbot) :
-	Simulationsobjekt(sName),
-	p_dLaenge(dLaenge),
-	p_pKreuzung(pKreuzung),
-	p_eTempolimit(eTempolimit),
-	p_bUeberholverbot(bUeberholverbot) {
-}
-
 // Destruktor
 Weg::~Weg() {
 

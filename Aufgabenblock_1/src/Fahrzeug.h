@@ -1,5 +1,6 @@
 #pragma once
 #include <iostream>
+#include <limits>
 
 #ifndef FAHRZEUG_H_
 #define FAHRZEUG_H_

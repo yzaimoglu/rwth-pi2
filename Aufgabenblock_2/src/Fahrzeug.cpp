@@ -96,19 +96,11 @@ double Fahrzeug::dTanken(double dMenge) {
 
 // Erzeugung eines geeigneten Objekts (Fahren) und Speichern in p_pVerhalten
 void Fahrzeug::vNeueStrecke(Weg& weg) {
-	// Bei Vorhandensein eines Verhaltens, Löschen des Verhaltens
-	if(p_pVerhalten) {
-		delete p_pVerhalten;
-	}
 	p_pVerhalten = new Fahren(weg);
 }
 
 // Erzeugung eines geeigneten Objekts (Parken) und Speichern in p_pVerhalten
 void Fahrzeug::vNeueStrecke(Weg& weg, double dStartzeitpunkt) {
-	// Bei Vorhandensein eines Verhaltens, Löschen des Verhaltens
-	if(p_pVerhalten) {
-		delete p_pVerhalten;
-	}
 	p_pVerhalten = new Parken(weg, dStartzeitpunkt);
 }
 

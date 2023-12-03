@@ -1,16 +1,15 @@
 #include <iostream>
 #include <list>
+#include <limits>
 #include "Simulationsobjekt.h"
 #include "vertagt_liste.h"
 #include "Tempolimit.h"
 #include "Fahrzeug.h"
-#include "Kreuzung.h"
 
 #ifndef WEG_H_
 #define WEG_H_
 
 class Fahrzeug;
-class Kreuzung;
 
 // Zur einfacheren Iterierung der Fahrzeugliste
 typedef vertagt::VListe<std::unique_ptr<Fahrzeug>>::iterator vIterator;
@@ -23,8 +22,6 @@ private:
 
 	// Notwendig für die Implementierung der Kreuzungklasse
 	bool p_bUeberholverbot;
-	std::weak_ptr<Weg> p_pRueckweg;
-	const std::weak_ptr<Kreuzung> p_pKreuzung;
 public:
 	// Standardkonstruktor
 	Weg();
@@ -34,9 +31,6 @@ public:
 	//	dLanege : Länge des Weges in km
 	// 	dTempolimit : Tempolimit auf dem Weg in km/h (Standardmäßig keine Begrenzung)
 	Weg(std::string sName, double dLaenge, Tempolimit eTempolimit = AUTOBAHN);
-
-	// Konstruktor für die Kreuzungimplementierung
-	Weg(std::string sName, double dLaenge, std::weak_ptr<Kreuzung> pKreuzung, Tempolimit eTempolimit = AUTOBAHN, bool bUeberholverbot = true);
 
 	// Methode zum Erhalten des Tempolimits als double
 	double getTempolimit() {
@@ -71,21 +65,6 @@ public:
 
 	// Löschen eines Fahrzeuges aus dem Weg
 	std::unique_ptr<Fahrzeug> pAbgabe(Fahrzeug&);
-
-	// Returned den Rückweg
-	Weg& getRueckweg() {
-		return *p_pRueckweg.lock();
-	}
-
-	// Setzt den Rückweg
-	void setRueckweg(std::weak_ptr<Weg> pRueckweg) {
-		p_pRueckweg = pRueckweg;
-	}
-
-	// Returned die Kreuzung
-	Kreuzung& getKreuzung() {
-		return *p_pKreuzung.lock();
-	}
 
 	// Methode zum Simulieren aller Fahrzeuge;
 	virtual void vSimulieren() override;
