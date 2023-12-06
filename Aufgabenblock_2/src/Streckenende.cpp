@@ -10,6 +10,7 @@ Streckenende::Streckenende(Fahrzeug& fahrzeug, Weg& weg) : Fahrausnahme(fahrzeug
 // Bearbeitung der Fehlermeldung des Streckenendes
 void Streckenende::vBearbeiten() {
 	std::cout << "Das Fahrzeug mit der ID " << p_pFahrzeug.getID() << " hat auf dem Weg mit der ID " << p_pWeg.getID() << " das Streckenede erreicht." << std::endl;
+	p_pWeg.pAbgabe(p_pFahrzeug);
 }
 
 Streckenende::~Streckenende() {
