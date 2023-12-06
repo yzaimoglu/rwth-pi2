@@ -96,12 +96,12 @@ double Fahrzeug::dTanken(double dMenge) {
 
 // Erzeugung eines geeigneten Objekts (Fahren) und Speichern in p_pVerhalten
 void Fahrzeug::vNeueStrecke(Weg& weg) {
-	p_pVerhalten = new Fahren(weg);
+	p_pVerhalten = std::make_unique<Fahren>(weg);
 }
 
 // Erzeugung eines geeigneten Objekts (Parken) und Speichern in p_pVerhalten
 void Fahrzeug::vNeueStrecke(Weg& weg, double dStartzeitpunkt) {
-	p_pVerhalten = new Parken(weg, dStartzeitpunkt);
+	p_pVerhalten = std::make_unique<Parken>(weg, dStartzeitpunkt);
 }
 
 // Definition der Memberfunktion vAusgeben()

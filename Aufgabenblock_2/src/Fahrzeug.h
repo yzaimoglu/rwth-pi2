@@ -28,7 +28,7 @@ protected:
 	double p_dZeit = 0;
 
 	// Verhalten Klasse, wo auch der Weg gespeichert ist
-	Verhalten *p_pVerhalten;
+	std::unique_ptr<Verhalten> p_pVerhalten;
 public:
 	// Standardkonstruktor
 	Fahrzeug();
